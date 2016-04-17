@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于对象的一些判断 | yixuan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？
+第一种情况这个肯定会：
+if(data != &amp;apos;&amp;apos;){
+    dosomething
+}
+但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：
+if(obj != null){
+    dosomething
+}
+那在好多情况下就又会进坑了…为什么呢？去这儿看看：关于x==y的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于对象的一些判断">
+<meta property="og:url" content="http://zhangmengxue.com/2015/01/22/aboutObject/index.html">
+<meta property="og:site_name" content="yixuan">
+<meta property="og:description" content="我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？
+第一种情况这个肯定会：
+if(data != &amp;apos;&amp;apos;){
+    dosomething
+}
+但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：
+if(obj != null){
+    dosomething
+}
+那在好多情况下就又会进坑了…为什么呢？去这儿看看：关于x==y的">
+<meta property="og:updated_time" content="2016-04-17T10:38:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于对象的一些判断">
+<meta name="twitter:description" content="我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？
+第一种情况这个肯定会：
+if(data != &amp;apos;&amp;apos;){
+    dosomething
+}
+但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：
+if(obj != null){
+    dosomething
+}
+那在好多情况下就又会进坑了…为什么呢？去这儿看看：关于x==y的">
+  
+    <link rel="alternate" href="/atom.xml" title="yixuan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">yixuan</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://zhangmengxue.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-aboutObject" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/22/aboutObject/" class="article-date">
+  <time datetime="2015-01-22T15:23:32.000Z" itemprop="datePublished">2015-01-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/随记/">随记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于对象的一些判断
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？</p>
+<h2 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h2><p>这个肯定会：</p>
+<pre><code>if(data != &apos;&apos;){
+    dosomething
+}
+</code></pre><p>但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：</p>
+<pre><code>if(obj != null){
+    dosomething
+}
+</code></pre><p>那在好多情况下就又会进坑了…<br>为什么呢？去这儿看看：<a href="http://barretlee.github.io/ST/ES5.1/#sec-11.9.3" target="_blank" rel="external">关于x==y的比较行为</a></p>
+<h2 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h2><p>$.isPlainObject()</p>
+<p>jQ中的这个方法在对象是通过{}或new Object()创建的的时候会返回true。Zepto中<br>也有这个方法，大体相同。</p>
+<p>源码是这样的：</p>
+<pre><code>isPlainObject: function( obj ) {
+    // Not plain objects:
+    // - Any object or value whose internal [[Class]] property is not &quot;[object Object]&quot;
+    // - DOM nodes
+    // - window
+    if ( jQuery.type( obj ) !== &quot;object&quot; || obj.nodeType || jQuery.isWindow( obj ) ) {
+        return false;
+    }
+
+    if ( obj.constructor &amp;&amp;
+            !hasOwn.call( obj.constructor.prototype, &quot;isPrototypeOf&quot; ) ) {
+        return false;
+    }
+
+    // If the function hasn&apos;t returned already, we&apos;re confident that
+    // |obj| is a plain object, created by {} or constructed with new Object
+    return true;
+}
+</code></pre><p>可以试试了：</p>
+<pre><code>$.isPlainObject({})          // =&gt; true
+$.isPlainObject({&apos;a&apos;:&apos;1&apos;})         // =&gt; true
+$.isPlainObject(new Object())  // =&gt; true
+$.isPlainObject(new Date())   // =&gt; false
+$.isPlainObject(window)      // =&gt; false
+</code></pre><h2 id="第三种情况"><a href="#第三种情况" class="headerlink" title="第三种情况"></a>第三种情况</h2><p>判断一个对象是否为空对象：</p>
+<pre><code>isEmptyObject: function( obj ) {
+    var name;
+    for ( name in obj ) {
+        return false;
+    }
+    return true;
+}
+</code></pre><p>不过有时候它也挺坑爹的：</p>
+<pre><code>$.isEmptyObject({})   // =&gt; true
+$.isEmptyObject(&apos;&apos;)   // =&gt; true
+$.isEmptyObject(null)   // =&gt; true
+$.isEmptyObject(0)   // =&gt; true
+$.isEmptyObject(NaN)   // =&gt; true
+$.isEmptyObject(undefined)   // =&gt; true
+$.isEmptyObject({&apos;a&apos;:&apos;1&apos;})   // =&gt; false
+$.isEmptyObject(&apos;str&apos;)   // =&gt; false
+</code></pre><p>其实，我们可以巧妙的应用toString()方法来判断数值类型，不管是基本的值类型还是对象：</p>
+<pre><code>Object.prototype.toString.call(2) // &quot;[object Number]&quot;
+Object.prototype.toString.call(&apos;&apos;) // &quot;[object String]&quot;
+Object.prototype.toString.call(true) // &quot;[object Boolean]&quot;
+Object.prototype.toString.call(undefined) // &quot;[object Undefined]&quot;
+Object.prototype.toString.call(null) // &quot;[object Null]&quot;
+Object.prototype.toString.call(Math) // &quot;[object Math]&quot;
+Object.prototype.toString.call({}) // &quot;[object Object]&quot;
+Object.prototype.toString.call([]) // &quot;[object Array]&quot;
+</code></pre><p>稍微整理一下就可以像我们想要得到的那样来判断数值类型了，特殊的null和undefined也不会落下：</p>
+<pre><code>var type = function (o){
+    var s = Object.prototype.toString.call(o);
+        return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+};
+
+type({}); // &quot;object&quot;
+type([]); // &quot;array&quot;
+type(5); // &quot;number&quot;
+type(null); // &quot;null&quot;
+type(); // &quot;undefined&quot;
+type(/abcd/); // &quot;regex&quot;
+type(new Date()); // &quot;date&quot;
+</code></pre><p>具体情况还是要具体分析，头脑清晰想清楚再判断好，再去做接下来的事情。少走些弯路。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://zhangmengxue.com/2015/01/22/aboutObject/" data-id="cin4htjjd00001hfhz6a3qvho" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/那些年踩过的大坑和小坑/">那些年踩过的大坑和小坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/01/ajax/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          再看Ajax
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/20/mobile/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">跨终端开发必备概念汇总</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/articles/">articles</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随记/">随记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实用小技巧/">实用小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/那些年踩过的大坑和小坑/">那些年踩过的大坑和小坑</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/博客/" style="font-size: 20px;">博客</a> <a href="/tags/实用小技巧/" style="font-size: 15px;">实用小技巧</a> <a href="/tags/那些年踩过的大坑和小坑/" style="font-size: 10px;">那些年踩过的大坑和小坑</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/04/17/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/hei-hexo/">关于博客主题以及HEXO的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/16/关于JSON对象的兼容性和一些小问题/">关于JSON对象的兼容性和一些小问题</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/25/canvas/">相识HTML5 canvas</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/23/运算符/">运算符中的一些小技巧</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

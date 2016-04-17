@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>跨终端开发必备概念汇总 | yixuan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="移动大潮已然到来，跟上节奏是必须。在进行更进一步深入学习和研究各种相关问题之前，有些概念是必须研究透彻的，这将会是以后开发和适配的基石。 
+文章导读一.单位英寸像素数（Pixel Per Inch，PPI）
+二.设备像素比率（Device Pixel Ratio，DPR）
+三.设备像素/css像素
+四.各路单位扫盲＋分析
+五.viewport相关
+六.width和device－width
+一.单位">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨终端开发必备概念汇总">
+<meta property="og:url" content="http://zhangmengxue.com/2015/01/20/mobile/index.html">
+<meta property="og:site_name" content="yixuan">
+<meta property="og:description" content="移动大潮已然到来，跟上节奏是必须。在进行更进一步深入学习和研究各种相关问题之前，有些概念是必须研究透彻的，这将会是以后开发和适配的基石。 
+文章导读一.单位英寸像素数（Pixel Per Inch，PPI）
+二.设备像素比率（Device Pixel Ratio，DPR）
+三.设备像素/css像素
+四.各路单位扫盲＋分析
+五.viewport相关
+六.width和device－width
+一.单位">
+<meta property="og:image" content="http://zhangmengxue.com/img/1.png">
+<meta property="og:image" content="http://zhangmengxue.com/img/2.png">
+<meta property="og:image" content="http://zhangmengxue.com/img/3.png">
+<meta property="og:image" content="http://zhangmengxue.com/img/4.png">
+<meta property="og:image" content="http://zhangmengxue.com/img/5.png">
+<meta property="og:image" content="http://zhangmengxue.com/img/6.png">
+<meta property="og:updated_time" content="2016-04-17T10:38:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跨终端开发必备概念汇总">
+<meta name="twitter:description" content="移动大潮已然到来，跟上节奏是必须。在进行更进一步深入学习和研究各种相关问题之前，有些概念是必须研究透彻的，这将会是以后开发和适配的基石。 
+文章导读一.单位英寸像素数（Pixel Per Inch，PPI）
+二.设备像素比率（Device Pixel Ratio，DPR）
+三.设备像素/css像素
+四.各路单位扫盲＋分析
+五.viewport相关
+六.width和device－width
+一.单位">
+<meta name="twitter:image" content="http://zhangmengxue.com/img/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="yixuan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">yixuan</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://zhangmengxue.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mobile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/20/mobile/" class="article-date">
+  <time datetime="2015-01-20T15:03:17.000Z" itemprop="datePublished">2015-01-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/文章/">文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      跨终端开发必备概念汇总
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>移动大潮已然到来，跟上节奏是必须。在进行更进一步深入学习和研究各种相关问题之前，有些概念是必须研究透彻的，这将会是以后开发和适配的基石。 </p>
+<h2 id="文章导读"><a href="#文章导读" class="headerlink" title="文章导读"></a>文章导读</h2><pre><code>一.单位英寸像素数（Pixel Per Inch，PPI）
+二.设备像素比率（Device Pixel Ratio，DPR）
+三.设备像素/css像素
+四.各路单位扫盲＋分析
+五.viewport相关
+六.width和device－width
+</code></pre><h2 id="一-单位英寸像素数（Pixel-Per-Inch，PPI）"><a href="#一-单位英寸像素数（Pixel-Per-Inch，PPI）" class="headerlink" title="一.单位英寸像素数（Pixel Per Inch，PPI）"></a>一.单位英寸像素数（Pixel Per Inch，PPI）</h2><p>PPI是一个度量单位，是像素密度单位，它表示了现实世界一英寸内的像素数，因此它决定了屏幕的显示质量。</p>
+<p>像我们常说的1024*768其实是指的屏幕分辨率，对应在现实中的分辨率就用PPI作为度量单位，可以举个例子来说明：</p>
+<p>　　｜－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－｜</p>
+<p>　　｜如果显示器的屏幕大小是14英寸（对角线的长度）纵横比是3:4－－&gt;</p>
+<p>　　｜那么水平方向上的长度就为：14*（4/5）＝11.2 英寸  （1英寸＝0.762寸）</p>
+<p>　　｜从而我们常说的1024对应现实世界的分辨率就为：1024/11.2 ＝ 91.4PPI</p>
+<p>　　｜－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－｜</p>
+<p>所以通常要分辨清楚，像我们说的1024<em>768和iPhone5s的640</em>1136他们不是对应PPI这个单位的。</p>
+<p>正是因为不相同，存在这样的对应关系，所以在终端上必要的时候就会做PPI的适配，以Retina屏为例子：</p>
+<p>－－&gt;我们不想文字在Retina屏上变小（因为在相同尺寸的屏幕下，Retina屏拥有比非Retina屏更多的物理像素，就是我们现实世界中的像素数，所以相同大小的字在Retina下会变小），所以为了做适配，我们可以采用类似媒体查询的办法来改变字体的大小。</p>
+<p>　　｜－PS－｜：Retina显示屏</p>
+<p>　　　　定义：就是具备足够高像素密度而使到人体肉眼无法分辨其中单独像素点的液晶屏，就像最早的iPhone4的屏幕。它的屏幕分辨率为960×640（每英寸像素数326ppi）。</p>
+<p>　　　　我觉得最大的区别就是：因为我们看到的图像都是通过物理像素呈现的，所以像素越密集图像就越清晰，而所谓的Retina显示屏就是在相同尺寸的屏幕下比非Retina的屏幕具备更多的物理像素。</p>
+<p>##二.设备像素比率（Device Pixel Ratio，DPR）</p>
+<p>定义：</p>
+<p>　　　　devicePixelRatio指的是window.devicePixelRatio, 被所有WebKit浏览器以及Opera所支持，window.devicePixelRatio是设备上物理像素和设备独立像素(device-independent pixels (dips))的比例，即：devicePixelRatio=设备物理像素/设备独立像素。</p>
+<p>　　　　它表示的就是物理像素与逻辑像素（px）的对应关系。</p>
+<p>举个例子：　　　　</p>
+<p>　　　　以iPhone为例，retina下devicePixelRatio=1，非retina下devicePixelRatio=2，这是因为无论是retina还是非retina屏，竖屏下，设备独立像素都是320，而它们的设备物理像素分别为640、320。</p>
+<p>　　这边还有更加详细的相关阅读：<a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/" target="_blank" rel="external">设备像素比devicePixelRatio的简单介绍</a>  <a href="https://www.imququ.com/post/devicepixelratio-and-border-width.html" target="_blank" rel="external">devicePixelRatio＝1.5引发的问题</a> </p>
+<p>　　于是也就有了DPR适配的问题，因为存在设备像素比率这个东西，所以当我们遇到那个经典的1px问题（无非就是设计师希望在任何的屏幕上都有一条1物理像素的边），要做的就多了。</p>
+<p>　　<a href="http://www.html-js.com/article/2402" target="_blank" rel="external">手机淘宝的flexible设计与实现</a></p>
+<h2 id="三-设备像素-css像素"><a href="#三-设备像素-css像素" class="headerlink" title="三.设备像素/css像素"></a>三.设备像素/css像素</h2><p>要先说下分辨率（Resolution），它就是指屏幕区域的宽高所占的像素数。分辨率说全了就是设备的分辨率，这两个是一回事。这个分辨率是指每英寸的面积上可产生的像素点，分辨率越高代表可以将画面显示的更精细（有时候获取的显示器分辨率，其实是指桌面设定的分辨率，而不是显示器的物理分辨率。大多数情况下，我们设置的分辨率与物理分辨率一致，显示效果才最佳）。</p>
+<p>其实这里说的分辨率（Resolution）在绝大多数的情况下跟我们题目上的设备像素是一个东西，名字的不同而已。</p>
+<p>　　好，下面就专心说设备像素/css像素。</p>
+<p>　　1.我们姑且认定设备的pixels为正确（标准）的pixels宽度。这些pixels决定了你工作所用的那些设备上正式的分辨率。在大多数情况下，能够从screen.width/height上取出具体值；</p>
+<p>　　2.现代浏览器上的缩放，是基于“伸展”pixels。结果是，html元素上的宽度并没有因为缩放200%而由128pix变成256px，而是真实的pixels的被计算成了双倍。html元素在形式上依然是128CSS的pixels，即便它占用了256设备的pixels；</p>
+<p>　　3.图例：</p>
+<p>　　下列图片将清楚的解释这个概念。如图,有4个1像素，缩放为100%的html元素，CSS的pixels完整的和设备的pixels重叠</p>
+<p><img src="/img/1.png" alt="图1"> </p>
+<p>　　当我们缩小浏览器时，CSS的pixels开始收缩，导致1单位的设备的pixels上重叠了多个CSS的pixels，如下图:</p>
+<p><img src="/img/2.png" alt="图2"> </p>
+<p>　　同理，放大浏览器时，相反的事情发生了，CSS的pixels开始扩大，导致1单位的CSS的pixels上重叠了多个设备的pixels，如下图：　　　　　</p>
+<p><img src="/img/3.png" alt="图3"> </p>
+<p>　　4.总体而言，你只需要关注CSS的pixels，这些pixels指定你的样式被如何渲染，设备的pixels几乎对你毫无用处。但对用户而言却不是这样。用户会缩放页面，直到他能舒服的阅读内容。但是你不需关心这些缩放级别。浏览器会自动的保证你的CSS的pixels会被伸展还是收缩；</p>
+<p>　　5.在缩放级别为100%时，1单位的CSS的pixel是严格相等于1单位的设备pixel。</p>
+<p>　　6.上面有说道，页面的清晰和模糊其实可以通过设备像素和css像素的关系来解释。那么这里也要注意下Retina屏，不然稍不注意，图可能会糊掉。</p>
+<p>　　　　非retina屏下，一个css像素“覆盖”在一个设备物理像素上；<br>　　　　retina屏下，一个css像素“覆盖”在四个设备物理像素上，实质是一个css像素被瓜分成了四份，效果就变糊了。</p>
+<p>　　　　原理就像下面这样：</p>
+<p><img src="/img/4.png" alt="图4"></p>
+<h2 id="四-各路单位扫盲＋分析"><a href="#四-各路单位扫盲＋分析" class="headerlink" title="四.各路单位扫盲＋分析"></a>四.各路单位扫盲＋分析</h2><p>　1.em</p>
+<p>　　　　em是相对单位，参考物是父元素的font-size，同百分比方式的单位相同，具有继承的特点，如果字体大小是16px（浏览器的默认值），那么 1em = 16px。 如果父元素设置了font-size:62.5%，那么相应的1em=10px了。</p>
+<p>　　　　这里有篇文章研究的比较仔细：<a href="http://www.html-js.com/article/2400" target="_blank" rel="external">关于webapp中的文字单位的一些倒腾</a></p>
+<p>　　2.rem</p>
+<p>　　　　rem也是相对单位，不过总是相对于根元素的字体大小，也就是<html>元素。</html></p>
+<p>　　　　现在越来越多的人采用rem在不同的设备间进行布局了，可以通过js动态的改变<html>元素的font-size，或是通过媒体查询来动态改变<html>元素的font-size的大小，来适配不同设备的不同屏幕大小，实现跨终端的目的，而且支持度也越来越好了。</html></html></p>
+<p>　　3.vw和vh</p>
+<p>　　　   vw Viewport宽度， <strong> 1vw </strong> 等于viewport宽度的1%；</p>
+<p>　　　　vh Viewport高度， <strong> 1vh </strong> 等于viewport高的的1%；</p>
+<p>　　4.vmin和vmax</p>
+<p>　　　　vw和vh对应于viewport的width和height，而vmin和vmax分别对应于width、height中的最小值和最大值，例如如果浏览器的宽/高被设置为1000px/600px，那么</p>
+<p>　　　　1vmin = 600 * 1/100;</p>
+<p>　　　　1vmax = 1000 * 1/100</p>
+<p><a href="http://msdn.microsoft.com/en-us/magazine/jj687762.aspx" target="_blank" rel="external">MSDN上有更为详尽的解释</a> </p>
+<h2 id="五-viewport相关"><a href="#五-viewport相关" class="headerlink" title="五.viewport相关"></a>五.viewport相关</h2><p>｜－视口viewport（这里且先说pc相关的viewport）－｜</p>
+<p>　　viewport的定义是严格的等于浏览器的窗口，它不是一个HTML的概念，所以我们不能通过css去修改它。</p>
+<p>　　实际上，viewport的功能在于控制网站的最高block容器，那就是<html>元素。也就是说<html>元素为viewport宽度的100%。虽然我们知道document.documentElement实际上就是<html>元素，但是document.documentElement. clientWidth/Height给出的实际是viewport的尺寸，而不是<html>元素，不管<html>元素的尺寸如何改变，都只会得到viewport的尺寸。那我们该如何获取<html>元素的尺寸呢，可以使用document.documentElement.offsetWidth/Height，但还是有bug，IE用这个值标示viewport的尺寸而非<html> 。</html></html></html></html></html></html></html></p>
+<p>｜－viewport（然后放开了的说下我学习和理解到的跨终端相关的viewport）－｜</p>
+<p>1.两种viewport：</p>
+<p>　　　　虚拟的viewport＃visualviewport －－visualviewport是当前显示在屏幕上的部分页面。用户会滚动页面来改变可见部分，或者缩放浏览器来改变visualviewport的尺寸。window.innerWidth/Height返回visualviewport的尺寸。</p>
+<p><img src="/img/5.png" alt="图5"></p>
+<p>　　　　布局的viewport＃layoutviewport－－css布局通常都是按照layoutviewport来定义，而且比visualviewport宽很多。同时<html>元素的宽度也是继承于layoutviewport。那么layoutviewport有多宽呢？每个浏览器都不同。iPhone上的Safari使用980px、Opera 850px，安卓的Webkit核心800px，IE974px。浏览器已经选择好他们的layoutviewport的尺寸，它完整的覆盖了最小缩放模式下的移动浏览器的屏幕。document.documentElement.clientWidth/Height传递layoutviewport的尺寸。</html></p>
+<p><img src="/img/6.png" alt="图6">
+　　</p>
+<p>2.和pc浏览器一样，screen.width/height标示了设备屏幕的尺寸，以设备的pixels度量。如果需要知道当前visualviewport相对于layoutviewport的距离。这就是滚动位移，如同在桌面浏览器一样，使用window.pageX/YOffset存储。和在桌面系统一样,document.documentElement.offsetWidth/Height给出了<html>元素以CSS的pixels度量的尺寸。</html></p>
+<p>　　上面内容只是基本，并不完整，不同浏览器的兼容问题还需要进一步研究，详细阅读请看：<a href="http://www.quirksmode.org/mobile/viewports.html" target="_blank" rel="external">A Table of two viewports－part one</a>       当然第二部分也非常值得一看： <a href="http://www.quirksmode.org/mobile/viewports2.html" target="_blank" rel="external">A Table of two viewports－part two</a>　</p>
+<p>　　quirksmode上的一个非常全的viewport相关的兼容性表，可用于适配时查看：<a href="http://www.quirksmode.org/mobile/tableViewport.html" target="_blank" rel="external">http://www.quirksmode.org/mobile/tableViewport.html</a></p>
+<p>　　其中涉及到的页面元素大小偏移相关我之前也有整理,没那么深入，倒也通俗易懂： 页面元素坐标和偏移相关整理 </p>
+<h2 id="六-width和device－width"><a href="#六-width和device－width" class="headerlink" title="六.width和device－width"></a>六.width和device－width</h2><p>我了解到的定义是：</p>
+<p>　　　　+－－width/height使用以CSS的pixels度量的layoutviewport，通俗的说就是页面内容的宽度；</p>
+<p>　　　　+－－device-width/height使用以设备的pixels度量的设备屏幕（device screen）；</p>
+<p>　　　　#－－width/height 反映document. documentElement. clientWidth/Height的值；</p>
+<p>　　　　#－－device-width/height 反映screen.width/height；</p>
+<p>　　　　但上面只是普遍情况，如果稍在ios设备下尝试下，就能发现事实跟上面说的不一样。</p>
+<p>　　　　在某些设备下：screen.width == 设备的物理分辨率 / window.devicePixelRatio。具体情况还需要详细的测试。</p>
+<p>上面也还只是列出了相关问题的基本了解与学习，在这个过程中更加发现，需要深入研究与学习的知识点还是很多的。</p>
+<p>比如说<meta>标签相关，还有1px的问题，都是值得深入学习的。</p>
+<p>后续继续持续学习，逐步完善。
+　 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://zhangmengxue.com/2015/01/20/mobile/" data-id="cin4htjk7000a1hfhkviq5t5l" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/22/aboutObject/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于对象的一些判断
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/articles/">articles</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随记/">随记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实用小技巧/">实用小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/那些年踩过的大坑和小坑/">那些年踩过的大坑和小坑</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/博客/" style="font-size: 20px;">博客</a> <a href="/tags/实用小技巧/" style="font-size: 15px;">实用小技巧</a> <a href="/tags/那些年踩过的大坑和小坑/" style="font-size: 10px;">那些年踩过的大坑和小坑</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/04/17/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/hei-hexo/">关于博客主题以及HEXO的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/16/关于JSON对象的兼容性和一些小问题/">关于JSON对象的兼容性和一些小问题</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/25/canvas/">相识HTML5 canvas</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/23/运算符/">运算符中的一些小技巧</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

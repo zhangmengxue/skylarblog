@@ -4,5 +4,5 @@
 ### deploy
 --------------------
 
-- Githu: https://github.com/zhangmengxue/skylarblog.git
+- Github: https://github.com/zhangmengxue/skylarblog.git
 - GitCoding: https://git.coding.net/yixuan_skylar/skylarblog.git

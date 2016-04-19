@@ -10,37 +10,65 @@
     width 94%
   @media desktop
     width 82%
-    
+
 #main
   margin 1em 0 0
   line-height line-height+0.3
   @media tablet
-    margin 2em 0 0
-    width 75%
-    float left
-    transition margin 0.5s ease-out
+    margin 2em auto
+    width 100%
   section.post
-    background color-section
-    margin-bottom 0.125em
+    background color-white
+    margin-bottom 25px
+    position relative
+    height 400px
     a
       display block
-      border-left 0.5em solid color-gray
-      transition border-left .45s
-      padding 0.5em
+      padding 20px
+      height 385px
       @media mini
         padding 1em
       &:hover
-        border-left 0.5em solid color-theme
+        border 1px solid #fff
+      .content-wrap
+        position absolute
+        right 200px
+        bottom 0
+        padding 10px
+        border 1px solid #f9f9f9
+        background-color #fff
       h1
-        color color-blue
+        color #000
         line-height line-height+0.5
+        width 500px
+        height 100px
       p
-        color color-font
+        color #666
+        width 500px
       time
         color color-font
         display block
         margin 0.5em 0
         font-size 0.9em
+      img
+        position absolute
+        left 15%
+        bottom 0
+      p.style
+        width 1000px
+        height 200px
+        position absolute
+        bottom 30px
+        left 50%
+        margin-left -600px
+        background-color color-section
+        img
+          width 40px
+          height 40px
+          position absolute
+          left 10px
+      span.readmore
+        color #000
   article.post-expand
     background color-section
     margin-bottom 3.5em
@@ -85,23 +113,31 @@
           text-decoration: none
           //text-shadow: 0 1px darken(color-theme, 20%)
 #archive-page
-  section.post
+   section.post
+    background color-white
+    margin-bottom 0.125em
+    height 70px
+    color #000
+    border 1px solid #f9f9f9
     a
+      display block
       font-size 0.9em
-      padding 0.5em !important
+      @media mini
+        padding 1em
+      h1
+        color color-blue
+        line-height line-height+0.5
+      p
+        color #000
       time
-        @media mini
-          padding-left 1em
-
-
+        color #000
+        display block
+        margin 0.5em 0
+        font-size 0.9em
 
 .moveMain
   margin-left 10% !important
 
-.unexpand .prev
-  border-left 0.5em solid color-gray
-  &:hover
-    border-left 0.5em solid color-theme
 
 #page-nav
   background color-section
@@ -159,7 +195,7 @@
 
 .tag-icon:before
   content "\f02c"
-  
+
 .archive-icon:before
   content "\f187"
 
@@ -171,8 +207,8 @@
     width 18.5%
     padding-left 0.5%
     float left
-  background color-section
-  border-left 0.5em solid color-gray
+  background color-white
+  border 1px solid color-section
   h2
     width 90%
     color color-blue
@@ -186,7 +222,12 @@
 .current
   color color-orange !important
 
+.archive-wrapper
+  width 950px !important
+  margin 0 auto
 .archive-part
+  width 700px !important
+  float right !important
   @media mini
     min-height 200px
   @media tablet
@@ -207,7 +248,9 @@
       width 50%
     @media tablet
       width 33.333%  */
-
+.archive-list
+  a
+    display inline
 .archive-nav
   @media mini
     width 100%
@@ -217,3 +260,93 @@
 /*! tags&categories layout */
 .all-list-box
   min-height 400px
+
+>div.main-photo
+      width 100%
+      height 800px
+      margin-top 10px
+      -webkit-filter blur(10px)
+      filter blur(10px)
+      position relative
+      overflow hidden
+      background url('http://gdp.alicdn.com/imgextra/i4/109859684/TB2xhArmVXXXXaQXpXXXXXXXXXX_!!109859684.jpg')
+      @media tablet
+        width 100%
+    a
+      display block
+      color color-black
+
+#page-name
+  height 120px
+  line-height 120px
+  color #000
+  text-align center
+  font-size 32px
+
+header nav
+  width 950px
+  height 150px;
+  margin 0 auto
+  color #000
+  @media phone
+    width 50%
+  @media tablet
+    width 950px
+    margin-top 1em
+    max-height none
+  font-size font-size+12.5
+  padding-bottom 0.5em
+  transition max-height 1s ease-out
+  ul
+    position relative
+    height 40px
+    line-height 40px
+    border-bottom 1px solid #000
+  ul li
+    font-size 14px
+    color #000
+    @media tablet
+      float left
+  ul li.icon
+    width 40px
+    height 40px
+    background-size 40px 40px
+    background-image url('../../img/icon-蝴蝶结.png')
+  ul li a
+    padding 0.2em 0 0.2em 1em
+    color: #000
+    @media tablet
+      padding 0.2em 1.5em
+    &:hover
+      color #000
+  ul li.search-tab
+    float right
+    color #000
+    position relative
+  ul li.search-tab img
+    position absolute
+    width 20px
+    height 20px
+    top 12px
+    left -10px
+
+.shownav
+  max-height 40em
+
+.search
+  padding 0.1em 0 0 1em
+  input
+    -webkit-appearance textfield
+    font-size 0.87em
+    line-height line-height+0.2
+    border 1px solid color-black
+    color color-black
+    width 80%
+    padding-left 0.5em
+    @media tablet
+      width 8em
+      transition .5s width
+      &:focus
+        width 15em
+  label
+    display none

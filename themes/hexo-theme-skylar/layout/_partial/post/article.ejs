@@ -1,8 +1,8 @@
-<div id="main" class="<%= item.layout %>" itemscope itemprop="blogPost">
+<div id="main" class="<%= item.layout %> blog" itemscope itemprop="blogPost">
   <% if (page.layout=='photo' && item.photos && item.photos.length){ %>
     <%- partial('gallery') %>
   <% } %>
-	<article itemprop="articleBody"> 
+	<article itemprop="articleBody">
 		<%- partial('header') %>
 	<div class="article-content">
 		<% if( table&&(item.toc !== false) && theme.toc.article){ %>
@@ -15,10 +15,10 @@
 		<% } %>
 		</div>
 		<% } %>
-		<%- item.content %>  
+		<%- item.content %>
 	</div>
-		<%- partial('footer') %>   	       
+		<%- partial('footer') %>
 	</article>
 	<%- partial('pagination') %>
 	<%- partial('comment') %>
-</div>  
+</div>

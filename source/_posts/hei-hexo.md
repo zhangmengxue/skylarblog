@@ -1,8 +1,8 @@
 title: 关于博客主题以及HEXO的使用
-categories: 
-- 文章
-tags: 
-- 博客
+tags:
+- 技术文
+picture:
+- ../img/hexo.png
 ---
 
 博客使用 [Hexo](http://hexo.io/) 搭建的，他相关的文档介绍在这里 [DOC](http://hexo.io/docs/)。
@@ -35,16 +35,16 @@ tags:
 ### 第一步先安装 hexo：
 
     # (mac/linux)下使用 sudo安装
-    npm install -g hexo 
+    npm install -g hexo
     # 初始化一个 hexo 项目
-    hexo init  
+    hexo init
 
 给博客安装 5 个插件：
 
-- hexo-generator-feed    
-- hexo-renderer-ejs      
+- hexo-generator-feed
+- hexo-renderer-ejs
 - hexo-renderer-stylus
-- hexo-generator-sitemap 
+- hexo-generator-sitemap
 - hexo-renderer-marked
 
 写在 `package.json` 文件中，通过 `npm install` 即可安装。
@@ -75,7 +75,7 @@ tags:
     deploy:
       type: github
       repository: https://github.com/barretlee/skylarblog.git
-      branch: gh-pages   
+      branch: gh-pages
 
 将 repository 改成你自己的地址，`https://github.com/zhangmengxue/blog.git`
 

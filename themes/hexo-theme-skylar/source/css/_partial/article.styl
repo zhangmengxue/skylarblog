@@ -1,10 +1,12 @@
 .post,.page,.link,.photo
-  background color-section
+  background color-white
+  border 1px solid #f9f9f9
   a
-    color color-blue 
+    color color-blue
     &:hover
       color color-orange     //color-theme
-
+#main.blog
+   width 950px !important
 article
   header.article-info
     @media mini
@@ -16,10 +18,9 @@ article
       @media tablet
         font-size font-size+100
         padding-top 0.3em
-      word-wrap break-word 
+      word-wrap break-word
       word-break normal
       font-smoothing antialiased
-      border-left 5px solid color-theme
     >p.article-author
       padding 0.3em 4% 0.3em 0
       text-align right
@@ -41,7 +42,7 @@ article
         font-family font-icon-family
         font-size font-size+30
         content "\f017"
-        font-smoothing()      
+        font-smoothing()
   .article-content
     padding 1.5em 4%
     color color-content
@@ -79,7 +80,7 @@ article
       font-smoothing antialiased
       >code
         color darken(color-gray,20%)
-    hr 
+    hr
       border 1px solid lighten(color-gray,30%)
     strong
       font-weight bold
@@ -142,12 +143,12 @@ article
       height auto
       vertical-align middle
       padding-top 0.5em
-      @media tablet 
+      @media tablet
         padding-top 0.7em
     .img-topic,.img-logo
       display none
     .img-center
-      display block 
+      display block
       margin auto
     .img-shadow
       box-shadow 0 0 2px 3px #ddd
@@ -187,7 +188,7 @@ article
         border-bottom 2px solid lighten(color-gray,30%)
         padding 0.5em
         line-height: 1.3em
-      td 
+      td
         border-bottom 1px solid lighten(color-gray,30%)
         padding 0.5em
         line-height: 1.3em

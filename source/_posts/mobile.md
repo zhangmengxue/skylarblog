@@ -1,12 +1,10 @@
 title: 跨终端开发必备概念汇总
 date: 2015-01-20 23:03:17
-categories: 
-- 文章
-tags: 
-- 博客
+tags:
+- 技术文
 ---
 
-移动大潮已然到来，跟上节奏是必须。在进行更进一步深入学习和研究各种相关问题之前，有些概念是必须研究透彻的，这将会是以后开发和适配的基石。 
+移动大潮已然到来，跟上节奏是必须。在进行更进一步深入学习和研究各种相关问题之前，有些概念是必须研究透彻的，这将会是以后开发和适配的基石。
 
 ## 文章导读
 	一.单位英寸像素数（Pixel Per Inch，PPI）
@@ -56,7 +54,7 @@ PPI是一个度量单位，是像素密度单位，它表示了现实世界一�
 
 　　　　以iPhone为例，retina下devicePixelRatio=1，非retina下devicePixelRatio=2，这是因为无论是retina还是非retina屏，竖屏下，设备独立像素都是320，而它们的设备物理像素分别为640、320。
 
-　　这边还有更加详细的相关阅读：[设备像素比devicePixelRatio的简单介绍](http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/)  [devicePixelRatio＝1.5引发的问题](https://www.imququ.com/post/devicepixelratio-and-border-width.html) 
+　　这边还有更加详细的相关阅读：[设备像素比devicePixelRatio的简单介绍](http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/)  [devicePixelRatio＝1.5引发的问题](https://www.imququ.com/post/devicepixelratio-and-border-width.html)
 
 　　于是也就有了DPR适配的问题，因为存在设备像素比率这个东西，所以当我们遇到那个经典的1px问题（无非就是设计师希望在任何的屏幕上都有一条1物理像素的边），要做的就多了。
 
@@ -78,15 +76,15 @@ PPI是一个度量单位，是像素密度单位，它表示了现实世界一�
 
 　　下列图片将清楚的解释这个概念。如图,有4个1像素，缩放为100%的html元素，CSS的pixels完整的和设备的pixels重叠
 
-![图1](/img/1.png) 
+![图1](/img/1.png)
 
 　　当我们缩小浏览器时，CSS的pixels开始收缩，导致1单位的设备的pixels上重叠了多个CSS的pixels，如下图:
 
-![图2](/img/2.png) 
+![图2](/img/2.png)
 
 　　同理，放大浏览器时，相反的事情发生了，CSS的pixels开始扩大，导致1单位的CSS的pixels上重叠了多个设备的pixels，如下图：　　　　　
 
-![图3](/img/3.png) 
+![图3](/img/3.png)
 
 　　4.总体而言，你只需要关注CSS的pixels，这些pixels指定你的样式被如何渲染，设备的pixels几乎对你毫无用处。但对用户而言却不是这样。用户会缩放页面，直到他能舒服的阅读内容。但是你不需关心这些缩放级别。浏览器会自动的保证你的CSS的pixels会被伸展还是收缩；
 
@@ -129,9 +127,9 @@ PPI是一个度量单位，是像素密度单位，它表示了现实世界一�
 
 　　　　1vmax = 1000 * 1/100
 
- 
 
-[MSDN上有更为详尽的解释](http://msdn.microsoft.com/en-us/magazine/jj687762.aspx) 
+
+[MSDN上有更为详尽的解释](http://msdn.microsoft.com/en-us/magazine/jj687762.aspx)
 
 ## 五.viewport相关
 
@@ -151,7 +149,7 @@ PPI是一个度量单位，是像素密度单位，它表示了现实世界一�
 
 　　　　布局的viewport＃layoutviewport－－css布局通常都是按照layoutviewport来定义，而且比visualviewport宽很多。同时<html>元素的宽度也是继承于layoutviewport。那么layoutviewport有多宽呢？每个浏览器都不同。iPhone上的Safari使用980px、Opera 850px，安卓的Webkit核心800px，IE974px。浏览器已经选择好他们的layoutviewport的尺寸，它完整的覆盖了最小缩放模式下的移动浏览器的屏幕。document.documentElement.clientWidth/Height传递layoutviewport的尺寸。
 
- 
+
 ![图6](/img/6.png)
 　　
 
@@ -161,7 +159,7 @@ PPI是一个度量单位，是像素密度单位，它表示了现实世界一�
 
 　　quirksmode上的一个非常全的viewport相关的兼容性表，可用于适配时查看：[http://www.quirksmode.org/mobile/tableViewport.html](http://www.quirksmode.org/mobile/tableViewport.html)
 
-　　其中涉及到的页面元素大小偏移相关我之前也有整理,没那么深入，倒也通俗易懂： 页面元素坐标和偏移相关整理 
+　　其中涉及到的页面元素大小偏移相关我之前也有整理,没那么深入，倒也通俗易懂： 页面元素坐标和偏移相关整理
 
 ## 六.width和device－width
 
@@ -179,11 +177,11 @@ PPI是一个度量单位，是像素密度单位，它表示了现实世界一�
 
 　　　　在某些设备下：screen.width == 设备的物理分辨率 / window.devicePixelRatio。具体情况还需要详细的测试。
 
- 
+
 
 上面也还只是列出了相关问题的基本了解与学习，在这个过程中更加发现，需要深入研究与学习的知识点还是很多的。
 
 比如说<META>标签相关，还有1px的问题，都是值得深入学习的。
 
 后续继续持续学习，逐步完善。
-　 
+　

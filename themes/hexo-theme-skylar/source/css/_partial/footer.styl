@@ -1,10 +1,13 @@
 footer
+  width 950px
+  margin 0 auto
   margin-top 1em
-  background color-footer
-  padding 0 2% 0.5em
+  background color-white
+  color #000
+  border-top 1px solid #000
 
 #footer
-  width 95%
+  width 950px
   margin 0 auto
   overflow hidden
   position relative
@@ -20,7 +23,7 @@ footer
       display block
       width 0.5em
       height 6.25em
-      border-right 0.125em solid color-white
+      border-right 0.125em solid #000
       margin 0 auto
       @media mini
         position absolute
@@ -31,7 +34,7 @@ footer
   width w=(110/16)em
   height w
   margin 0 auto
-  background no-repeat url("../"+author-img) left top 
+  background no-repeat url("../"+author-img) left top
   background-size w w
   border-radius (w/2)
   transition transform 2s ease-out
@@ -43,17 +46,19 @@ footer
     margin 0 0 1.5em
 
 .info
+  color #000
   if ShowCustomFont
+    color #000
     font-family font-custom-family
     font-smoothing()
     font-size font-size+50
     line-height 1.3em
   else
+    color #000
     font-family font-default
     line-height line-height+0.15
   width 90%
   margin 0 auto
-  color color-white
   @media mini
     margin 4.5em 0 2em 0
     float left
@@ -63,19 +68,20 @@ footer
   width 100%
   margin 0 auto
   float left
+  color #000
   padding-left 3%
   @media phone
     padding-left 20%
   @media mini
-    width 15em 
-    position absolute  
+    width 15em
+    position absolute
     right -2em
     top 3em
   a
     float left
     display block
     width 14%
-    color color-white
+    color #000
     font-size font-size+85
     padding 0.5em
     @media tablet
@@ -86,7 +92,7 @@ footer
 .icon-weibo:before,.icon-github:before,.icon-twitter:before,.icon-facebook:before,.icon-stack-overflow:before,.icon-email:before,.icon-google_plus:before,.icon-linkedin:before
   font-family font-icon-family
   font-smoothing()
- 
+
 .icon-weibo:before
   content "\f18a"
 .icon-github:before
@@ -136,7 +142,7 @@ footer
   width 100%
   float left
   text-align center
-  .cc-opacity 
+  .cc-opacity
     opacity 0.7
     border-bottom none
     &:hover

@@ -1,6 +1,6 @@
 <% if (site.tags.length){ %>
 <div class="tagslist">
-	<p class="asidetitle"><%= __('tags') %></p>
+	<p class="asidetitle">大额的各种文章</p>
 		<ul class="clearfix">
 		<% site.tags.sort('posts.length','desc').limit(20).each(function(item){ %>
 			<% if(item.posts.length){ %>

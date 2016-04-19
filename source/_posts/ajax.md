@@ -1,9 +1,7 @@
 title: 再看Ajax
 date: 2015-02-01 14:00:35
-categories: 
-- articles
-tags: 
-- 博客
+tags:
+- 技术文
 ---
 
 再回顾Ajax相关的内容，再次梳理学习还是很有必要的，尤其是实际的开发中，ajax更是必不可少，仔细学习以便避免不必要的错误。
@@ -51,7 +49,7 @@ tags:
 ---  xhr.readyState得到一个整数，指定了HTTP请求的状态，有如下对应关系：
 
 	+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	常量                            值                    含义   
+	常量                            值                    含义
 	-----------------------------------------------------------------------------
 	UNSENT                         0                    open()尚未调用
 	OPENED                         1                    open()已调用
@@ -98,19 +96,19 @@ tags:
 发送FormData类型的数据为我们提供了便利：
 
 	var formData = new FormData();
-  
+
 	formData.append('username','mengxue');//第一个参数为<input>标签的name属性
 	formData.append('email','673013891@qq.com');//第二个参数为value属性
 	formData.append('city','hangzhou');
- 
+
 	//现有表单中没有的数据也可以构造在请求中
 	formData.append('birthday', '930920');
-  
+
 	xhr.send(formData);
 
 1.3  再看CORS
 
-CORS（跨域资源共享），它的出现就是为了解救Ajax受限于同源策略，实现跨域。 
+CORS（跨域资源共享），它的出现就是为了解救Ajax受限于同源策略，实现跨域。
 
 预检机制：
 
@@ -196,11 +194,11 @@ CORS机制默认是不会发送cookie信息和HTTP的认证信息的，除非我
 
 　　-- 响应主体
 
- 
+
 
 我在网上找了一个参数尽可能多的请求，下面是它的请求头信息和响应头信息：
 
-![图2.1](/img/21.png) 
+![图2.1](/img/21.png)
 
 2.1 Request Headers中的一些参数：
 
@@ -264,7 +262,7 @@ CORS机制默认是不会发送cookie信息和HTTP的认证信息的，除非我
 
 其他一些常见易理解的参数，这里就不列举啦。
 
- 
+
 
 2.2 Response Headers中的一些参数：
 

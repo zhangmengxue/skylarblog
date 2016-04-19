@@ -6,7 +6,6 @@
     </header>
     <div id="container">
       <%- body %>
-      <%- partial('_partial/sidebar',{item: page,table: true}) %>
     </div>
     <footer><%- partial('_partial/footer') %></footer>
     <%- partial('_partial/after_footer') %>
@@ -86,6 +85,7 @@
   <body>
     <header>
       <%- partial('_partial/header') %>
+      <%- partial('_partial/main-nav') %>
     </header>
     <div id="container">
       <%- body %>

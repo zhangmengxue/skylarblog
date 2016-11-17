@@ -70,7 +70,7 @@ stylus:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-- type: git
+- type: github
   repository: https://github.com/zhangmengxue/skylarblog.git
   branch: gh-pages
   message: build at local, send to coding-pages {{ now("YYYY-MM-DD HH:mm:ss") }}

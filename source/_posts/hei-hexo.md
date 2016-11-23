@@ -2,7 +2,7 @@ title: 关于博客主题以及HEXO的使用
 tags: blog
 categories: hexo
 picture:
-- /imgages/author.jpg
+- /imgaes/author.jpg
 ---
 
 博客使用 [Hexo](http://hexo.io/) 搭建的，他相关的文档介绍在这里 [DOC](http://hexo.io/docs/)。

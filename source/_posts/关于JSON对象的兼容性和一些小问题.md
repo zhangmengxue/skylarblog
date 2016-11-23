@@ -1,7 +1,6 @@
 title: 关于JSON对象的兼容性和一些小问题
 date: 2015-03-16 21:52:25
-tags:
-- 技术文
+tags: 技术文
 ---
 
 ### 一、JSON对象的一些方法
@@ -9,6 +8,7 @@ tags:
 + JSON.parse()解析JSON字符串返回解析后的JSON对象;
 + JSON.stringify()返回指定JSON对象的字符串形式;
 
+<!-- more --> 
 ### 二、JSON对象的兼容性问题
 
 IE8+才会支持JSON对象。我们可以通过代码自己模拟原生的JSON对象：[模拟原生JSON对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON)

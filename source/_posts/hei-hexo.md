@@ -1,8 +1,8 @@
 title: 关于博客主题以及HEXO的使用
-tags:
-- 技术文
+tags: blog
+categories: hexo
 picture:
-- ../img/hexo.png
+- /imgages/author.jpg
 ---
 
 博客使用 [Hexo](http://hexo.io/) 搭建的，他相关的文档介绍在这里 [DOC](http://hexo.io/docs/)。
@@ -13,8 +13,10 @@ picture:
 
 ### 新建文件夹
 
+```javascript
     mkdir skylarBlog
     cd skylarBlog
+```
 
 ### fork 代码
 
@@ -30,6 +32,7 @@ picture:
     # 切换主干代码
     git checkout master
 
+<!-- more --> 
 ## 二、安装 hexo 及相关插件
 
 ### 第一步先安装 hexo：

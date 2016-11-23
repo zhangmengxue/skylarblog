@@ -21,6 +21,7 @@ tags:
 那在好多情况下就又会进坑了...
 为什么呢？去这儿看看：[关于x==y的比较行为](http://barretlee.github.io/ST/ES5.1/#sec-11.9.3)
 
+<!-- more --> 
 ## 第二种情况
 
 $.isPlainObject()

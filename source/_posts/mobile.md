@@ -14,6 +14,7 @@ tags:
 	五.viewport相关
 	六.width和device－width
 
+<!-- more --> 
 ## 一.单位英寸像素数（Pixel Per Inch，PPI）
 
 PPI是一个度量单位，是像素密度单位，它表示了现实世界一英寸内的像素数，因此它决定了屏幕的显示质量。

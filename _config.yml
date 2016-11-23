@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 大额skylar/艺璇
+title: skylar艺璇
 subtitle:
-description:
-author:
-language: zh-CN
+description: 主业程序媛，副业文艺逗比女青年...
+author: skylar艺璇
+language: zh-Hans
 timezone:
 
 # URL
@@ -40,7 +40,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -60,10 +60,13 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+# Custom Config
+avatar: /images/author.jpg
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-skylar
+theme: next
 stylus:
   compress: true
 

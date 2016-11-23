@@ -1,0 +1,999 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术文," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="skylar❤艺璇" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。
+文章导读    1.必备技能    2.用于画图的函数    3.图像的处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="相识HTML5 canvas">
+<meta property="og:url" content="http://zhangmengxue.com/2015/02/25/canvas/index.html">
+<meta property="og:site_name" content="skylar❤艺璇">
+<meta property="og:description" content="Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。
+文章导读    1.必备技能    2.用于画图的函数    3.图像的处理">
+<meta property="og:image" content="http://zhangmengxue.com/img/canvas.png">
+<meta property="og:image" content="http://zhangmengxue.com/img/canvas2.png">
+<meta property="og:image" content="http://zhangmengxue.com/img/canvas3.png">
+<meta property="og:updated_time" content="2016-11-23T03:33:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="相识HTML5 canvas">
+<meta name="twitter:description" content="Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。
+文章导读    1.必备技能    2.用于画图的函数    3.图像的处理">
+<meta name="twitter:image" content="http://zhangmengxue.com/img/canvas.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: false,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhangmengxue.com/2015/02/25/canvas/"/>
+
+
+
+
+
+  <title> 相识HTML5 canvas | skylar❤艺璇 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <div class="plant-wrap1"></div>
+    <div class="plant-wrap2"></div>
+    <div class="plant-wrap3"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">skylar❤艺璇</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhangmengxue.com/2015/02/25/canvas/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="skylar艺璇">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/author.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="skylar❤艺璇">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="skylar❤艺璇" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                相识HTML5 canvas
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-25T22:58:44+08:00">
+                2015-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2015/02/25/canvas/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/25/canvas/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/02/25/canvas/" class="leancloud_visitors" data-flag-title="相识HTML5 canvas">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。</p>
+<p>文章导读<br>    1.必备技能<br>    2.用于画图的函数<br>    3.图像的处理</p>
+<a id="more"></a> 
+<h3 id="一、必备技能"><a href="#一、必备技能" class="headerlink" title="一、必备技能"></a>一、必备技能</h3><p>这是一个canvas标签：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=<span class="string">"c1"</span> width=<span class="string">"400"</span> height=<span class="string">"400"</span>&gt;</div><div class="line">	&lt;span&gt;注意：不支持canvas的浏览器就会显示这个span标签中的内容,并且在css中定义canvas的宽高是等比例缩放的，canvas中行内的宽高样式才是画布的大小&lt;/span&gt;</div><div class="line">&lt;<span class="regexp">/canvas&gt;</span></div></pre></td></tr></table></figure>
+<p>控制它的宽高是要写在行内样式中的，像上面那样。这样我们就有了一个canvas元素，然后我们就可以去操作它了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'Canvas'</span>);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (canvas.getContext) &#123;</div><div class="line">    <span class="keyword">var</span> content = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>获取元素的同时，还要获取canvas的2D绘图环境。要是用于3D绘图的话，就要用WebGL了。</p>
+<h3 id="二、用于画图的函数"><a href="#二、用于画图的函数" class="headerlink" title="二、用于画图的函数"></a>二、用于画图的函数</h3><p>然后，我们要开始在画布上绘图了。它的画布是这样的网格：</p>
+<p><img src="/img/canvas.png" alt="图1"></p>
+<p><strong>2.1矩形</strong></p>
+<p>canvas中只支持这一种形状的函数，别的形状就都要自己组合来实现了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fillRect(x, y, width, height) <span class="comment">//画一个填充的矩形</span></div><div class="line">strokeRect(x, y, width, height) <span class="comment">//画一个只有边框的矩形</span></div><div class="line">clearRect(x, y, width, height) <span class="comment">//清除指定的矩形区域</span></div></pre></td></tr></table></figure>
+<p>其中的（x,y）是指矩形左上角的坐标。</p>
+<p><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E7%9F%A9%E5%BD%A2.html" target="_blank" rel="external">查看源码</a><br><a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E7%9F%A9%E5%BD%A2.html" target="_blank" rel="external">运行结果</a></p>
+<p><strong>2.2路径</strong></p>
+<pre><code>1.首先，创建一条路径－－beginPath()
+2.然后，通过一些绘图的方法做一些绘图操作
+3.然后关闭路径－－closePath()
+4.我们已经把路径创建好了，然后就是填充或者绘制路径到我们的画布上－－stroke()/fill()
+</code></pre><p>比如说画一个三角形：<a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2.html" target="_blank" rel="external">查看源码</a>    <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2.html" target="_blank" rel="external">运行结果</a></p>
+<p>需要注意的是其中两个三角形，颜色不同，一不小心可能会出问题，所以我们有时可能需要save()和restore()函数的帮助来达到局部作用的效果。<br>canvas还提供了两个移动画笔的函数：</p>
+<pre><code>moveTo(x, y) //将画笔移动到指定的(x,y)的位置
+lineTo(x, y) //在当前画笔的位置到指定的(x,y)位置画一条线
+</code></pre><p>尝试一下moveTo()方法我们可以画个笑脸：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E4%B8%AA%E7%AC%91%E8%84%B8.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E4%B8%AA%E7%AC%91%E8%84%B8.html" target="_blank" rel="external">运行结果</a></p>
+<p>结合使用moveTo和lineTo方法，我们可以实现鼠标像画笔一样在画板上绘图的效果：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E9%BC%A0%E6%A0%87%E7%BB%98%E5%9B%BE.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E9%BC%A0%E6%A0%87%E7%BB%98%E5%9B%BE.html" target="_blank" rel="external">运行结果</a></p>
+<p>然后我们严格的按照上面说的规范步骤，1，2，3，4并结合画圆的函数，可以自己绘制一个钟表，稍加改进就是个嘀嗒嘀嗒走的时钟了：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E9%92%9F%E8%A1%A8.html" target="_blank" rel="external">查看代码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E9%92%9F%E8%A1%A8.html" target="_blank" rel="external">运行结果</a></p>
+<p> <strong>2.3文字</strong></p>
+<pre><code>fillText(&apos;要显示的文本&apos;，x坐标，y坐标)此方法不支持文本断行，要显示多行文本只能多次调用
+</code></pre><p>通过fillText()方法我们可以在canvas画布上写文字：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E6%96%87%E6%9C%AC.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E6%96%87%E6%9C%AC.html" target="_blank" rel="external">运行结果</a></p>
+<p><strong>2.4圆形和扇形</strong></p>
+<pre><code>ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+(x,y)－－圆心坐标
+radius－－半径
+startAngle－－扇形的起始角度（弧度）
+endAngle－－扇形的终止角度（弧度）
+anticlockwise－－做图时是顺时针画（true）还是逆时针（false）画
+</code></pre><p><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E5%9C%86%E5%BD%A2%E5%92%8C%E6%89%87%E5%BD%A2.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E5%9C%86%E5%BD%A2%E5%92%8C%E6%89%87%E5%BD%A2.html" target="_blank" rel="external">运行结果</a></p>
+<p>结合对rgb颜色的相关操作，我们可以做出类似调色板的效果：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E8%B0%83%E8%89%B2%E6%9D%BF.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E8%B0%83%E8%89%B2%E6%9D%BF.html" target="_blank" rel="external">运行结果</a></p>
+<p><strong>2.5不规则图形</strong></p>
+<p>我们可以通过画曲线来得到不规则的图形，canvas为我们提供了两个高大上的函数：</p>
+<pre><code>－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+#quadraticCurveTo(cp1x, cp1y, x, y)
+(cp1x,cp1y)－－控制点
+此函数表示从当前的画笔位置到（x，y）画一条二次曲线
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+#bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+(cp1x,cp1y)－－控制点1  (cp2x,cp2y)－－控制点2
+此函数表示从当前的画笔位置到（x，y）画一条bezier曲线
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+</code></pre><p>这两个曲线具体含义我也不太清楚，但大概是这个样子：</p>
+<p><img src="/img/canvas2.png" alt="图2"></p>
+<p>画个会话气泡试一下quadraticCurveTo函数：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E4%B8%AA%E4%BC%9A%E8%AF%9D%E6%B0%94%E6%B3%A1.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E4%B8%AA%E4%BC%9A%E8%AF%9D%E6%B0%94%E6%B3%A1.html" target="_blank" rel="external">运行结果</a></p>
+<p>画个心形试一下bezierCurveTo函数：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E5%BF%83%E5%BD%A2.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E5%BF%83%E5%BD%A2.html" target="_blank" rel="external">运行结果</a></p>
+<p><strong>2.6渐变和阴影</strong></p>
+<pre><code>＃渐变：
+var myGradient = ctx.createLinearGradient(x1, y1, x2, y2);
+(x1,y1)－－起点坐标  (x2,y2)－－终点坐标
+myGradient.addColorStop(0, &quot;#BABABA&quot;);
+－－添加起始颜色
+myGradient.addColorStop(1, &quot;#636363&quot;);
+－－添加终止的颜色
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
+＃阴影
+ctx.shadowOffsetX = 10; // 设置水平位移
+ctx.shadowOffsetY = 10; // 设置垂直位移
+ctx.shadowBlur = 5; // 设置模糊度
+ctx.shadowColor = &quot;rgba(0,0,0,0.5)&quot;; // 设置阴影颜色
+</code></pre><p>一个也不太搭边儿的例子，不管怎么说，也用到了渐变呢，满是星星的星球：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E6%98%9F%E7%90%83%E9%87%8C%E7%9A%84%E6%98%9F%E6%98%9F.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E6%98%9F%E7%90%83%E9%87%8C%E7%9A%84%E6%98%9F%E6%98%9F.html" target="_blank" rel="external">运行结果</a><br>这里面用到了clip（）方法来实现星星，这跟某css属性clip－path比较神似，我以前尝试过：<br>请戳：<a href="https://github.com/zhangmengxue/Practice/blob/master/clip-path%E7%A5%9E%E6%8A%80%E5%B7%A7.html" target="_blank" rel="external">源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/clip-path%E7%A5%9E%E6%8A%80%E5%B7%A7.html" target="_blank" rel="external">示例</a></p>
+<p><strong>2.7变换</strong></p>
+<p>canvas中有我们熟悉的几个变换函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">translate(x, y) －－平移</div><div class="line">rotate(angle) －－旋转</div><div class="line">scale(x, y) －－缩放</div><div class="line">transform(a, b, c, d, e, f) －－变换</div><div class="line">上面的变换函数是根据变换矩阵进行的：</div><div class="line">   a   c   e</div><div class="line">［ b   d   f ］</div><div class="line">   <span class="number">0</span>   <span class="number">0</span>   <span class="number">1</span></div></pre></td></tr></table></figure>
+<p>简单的小例子：<a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E6%97%8B%E8%BD%AC%E7%9A%84%E5%B0%8F%E6%96%B9%E5%9D%97.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E6%97%8B%E8%BD%AC%E7%9A%84%E5%B0%8F%E6%96%B9%E5%9D%97.html" target="_blank" rel="external">运行结果</a></p>
+<h3 id="三、图像处理"><a href="#三、图像处理" class="headerlink" title="三、图像处理"></a>三、图像处理</h3><p>几个关键函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myImageData = ctx.createImageData(width, height);</div><div class="line">ctx.getImageData(left, top, width, height);<span class="comment">//读取canvas的内容，返回一个对象且该对象有一个data属性，可以供我们操作页面的像素。</span></div><div class="line">ctx.putImageData(myImageData, dx, dy);<span class="comment">//将操作好的对象重新绘制在画布中</span></div><div class="line">ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>); <span class="comment">// 我们常用的drawImage方法，设置对应的图像对象，以及它在画布上的位置</span></div></pre></td></tr></table></figure>
+<p>通过getImageData()方法获取到图像对象，访问它的data属性就可以得到一个像素数组，我们对像素进行处理，使我们可以用canvas处理图像。</p>
+<p><strong>3.1 灰度效果</strong></p>
+<p>灰度图（grayscale）就是取红、绿、蓝三个像素值的算术平均值，这实际上将图像转成了黑白形式。假定d[i]是像素数组中一个象素的红色值，则d[i+1]为绿色值，d[i+2]为蓝色值，d[i+3]就是alpha通道值。转成灰度的算法，就是将红、绿、蓝三个值相加后除以3，再将结果写回数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;data.length;i+=<span class="number">4</span>)&#123;</div><div class="line">       <span class="keyword">var</span> avg = (data[i]+data[i+<span class="number">1</span>]+data[i+<span class="number">2</span>]) / <span class="number">3</span>;</div><div class="line">       data[i] = avg; <span class="comment">//r</span></div><div class="line">       data[i+<span class="number">1</span>] = avg; <span class="comment">//g</span></div><div class="line">       data[i+<span class="number">2</span>] = avg; <span class="comment">//b</span></div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><strong>3.2 复古效果</strong></p>
+<p>复古效果（sepia）则是将红、绿、蓝三个像素，分别取这三个值的某种加权平均值，使得图像有一种古旧的效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; d.length; i += <span class="number">4</span>) &#123;</div><div class="line">	<span class="keyword">var</span> r = d[i];</div><div class="line">	<span class="keyword">var</span> g = d[i + <span class="number">1</span>];</div><div class="line">	<span class="keyword">var</span> b = d[i + <span class="number">2</span>];</div><div class="line">	d[i]     = (r * <span class="number">0.393</span>)+(g * <span class="number">0.769</span>)+(b * <span class="number">0.189</span>); <span class="comment">// red</span></div><div class="line">	d[i + <span class="number">1</span>] = (r * <span class="number">0.349</span>)+(g * <span class="number">0.686</span>)+(b * <span class="number">0.168</span>); <span class="comment">// green</span></div><div class="line">	d[i + <span class="number">2</span>] = (r * <span class="number">0.272</span>)+(g * <span class="number">0.534</span>)+(b * <span class="number">0.131</span>); <span class="comment">// blue</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>3.3 反转效果</strong></p>
+<p>反转效果（invert）是指图片呈现一种色彩颠倒的效果。算法为红、绿、蓝通道都取各自的相反值（255-原值）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; d.length; i += <span class="number">4</span>) &#123;</div><div class="line">       d[i] = <span class="number">255</span> - d[i];</div><div class="line">       d[i+<span class="number">1</span>] = <span class="number">255</span> - d[i + <span class="number">1</span>];</div><div class="line">       d[i+<span class="number">2</span>] = <span class="number">255</span> - d[i + <span class="number">2</span>];</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>我尝试了一下灰度图的效果和反转图的效果： <a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/canvas%E5%9B%BE%E5%83%8F%E6%95%88%E6%9E%9C.html" target="_blank" rel="external">查看源码</a><br>注意，在我们自己本地写demo准备运行查看结果的时候，getImageData()方法可能会有问题，比如说报这个错：Failed to execute ‘getImageData’ on ‘CanvasRenderingContext2D’: The canvas has been tainted by cross-origin data<br>我们知道这是域和本地运行等相关的问题，这时我们自己本地启用服务器，localhost访问就可以了。</p>
+<p><strong>3.4 拾色器</strong></p>
+<p>实现思路：通过getImageData(x,y,1,1)获得当前鼠标所在位置的一像素的图像对象，通过其data属性操作拿到它的像素值，也就是我们想得到的rgb值。<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/canvas%E6%8B%BE%E8%89%B2%E5%99%A8.html" target="_blank" rel="external">查看源码</a></p>
+<p><strong>3.5 放大镜</strong></p>
+<p>实际上drawImage方法可以有多个参数，提供更加丰富的功能：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>  ctx.drawImage(image, dx, dy);</div><div class="line"><span class="number">2</span>  ctx.drawImage(image, dx, dy, dWidth, dHeight);</div><div class="line"><span class="number">3</span>  ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);</div></pre></td></tr></table></figure>
+<p>各个参数就像下面的示意图这样：</p>
+<p><img src="/img/canvas3.png" alt="图3"></p>
+<p>然后我们就可以使用drawImage方法在原图像变换到绘制的图像中做一个等比放大的操作，就可以实现放大镜的效果啦： <a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/canvas%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C.html" target="_blank" rel="external">查看源码</a></p>
+<p><strong>3.6图像的高斯模糊</strong></p>
+<p>其实，css中有一个兼容性不那么好的filter属性，可以简单的实现图像模糊的效果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-webkit-filter: blur(<span class="number">20</span>px); <span class="comment">/* Chrome, Opera */</span></div><div class="line">   -moz-filter: blur(<span class="number">20</span>px);</div><div class="line">    -ms-filter: blur(<span class="number">20</span>px);</div><div class="line">        filter: blur(<span class="number">20</span>px);</div></pre></td></tr></table></figure>
+<p>但是使用canvas可以实现真正意义上的高斯模糊（就是算法那种balabala的）。<br>这里有一个实现的很好的高斯模糊的js：<a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html" target="_blank" rel="external">StackBlur</a><br>使用它我们就可以轻松的实现图像的高斯模糊了：<a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html" target="_blank" rel="external">查看源码</a></p>
+<h3 id="四、资源"><a href="#四、资源" class="headerlink" title="四、资源"></a>四、资源</h3><p>canvas中绘图环境所有的属性和方法都可以在这里找到：<a href="https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D" target="_blank" rel="external">CanvasRenderingContext2D interface</a></p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/" target="_blank" rel="external">使用CSS将图片转换成模糊(毛玻璃)效果</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank" rel="external">Canvas API</a></p>
+<p><a href="http://javascript.ruanyifeng.com/htmlapi/canvas.html" target="_blank" rel="external">javascript标准参考教程Canvas</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术文/" rel="tag"># 技术文</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/23/运算符/" rel="next" title="运算符中的一些小技巧">
+                <i class="fa fa-chevron-left"></i> 运算符中的一些小技巧
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/16/关于JSON对象的兼容性和一些小问题/" rel="prev" title="关于JSON对象的兼容性和一些小问题">
+                关于JSON对象的兼容性和一些小问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/02/25/canvas/"
+           data-title="相识HTML5 canvas" data-url="http://zhangmengxue.com/2015/02/25/canvas/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="skylar艺璇" />
+          <p class="site-author-name" itemprop="name">skylar艺璇</p>
+          <p class="site-description motion-element" itemprop="description">主业程序媛，副业文艺逗比女青年...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhangmengxue" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/yixuan_mengxue" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yixuanzmx" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/da-e-da-e-da-da-e" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://barretlee.com/" title="小胡子哥" target="_blank">小胡子哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、必备技能"><span class="nav-number">1.</span> <span class="nav-text">一、必备技能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、用于画图的函数"><span class="nav-number">2.</span> <span class="nav-text">二、用于画图的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、图像处理"><span class="nav-number">3.</span> <span class="nav-text">三、图像处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、资源"><span class="nav-number">4.</span> <span class="nav-text">四、资源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skylar艺璇</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zhangmengxue"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Qw9Ua0IDARc8HyQPQt58bITR-gzGzoHsz", "1lMbySdCR93QWvkRIdomqn6a");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  <script type="text/javascript">
+    function randomIntBetween(a, b) {
+      return Math.floor(Math.random()*(b-a+1)+a);
+  }
+
+  function generateRandomSparklingFrames(steps, minOpacity, maxOpacity)
+  {
+      var opacity = [],
+          percent = [];
+      for(i=0; i < steps; i++) {
+          do {
+              opacity[i] = Math.random().toFixed(2);
+          } while (opacity[i] < minOpacity || opacity[i] > maxOpacity);
+          percent[i] = randomIntBetween(1,99);
+      }
+      percent.sort();
+
+      rule = "0% { opacity: " + opacity[0] + "} ";
+      for(i=0; i < steps; i++) {
+          rule += percent[i]+"% { opacity: " + opacity[i] + "} ";
+      }
+      rule += "100% { opacity: " + opacity[0] + "} ";
+
+      return rule;
+  }
+
+  function insertStarRule(name, numSteps, minOpacity, maxOpacity, animationTimeMin, animationTimeMax) {
+      CSS = document.styleSheets[0]; // take the default style sheet
+
+      if (CSS.insertRule) {
+          try {
+              CSS.insertRule("@-webkit-keyframes " + name + "{ " + generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity) + "}", CSS.cssRules.length);
+              CSS.insertRule("." + name + " { -webkit-animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite }", CSS.cssRules.length);
+          } catch (e) {}
+          try {
+              CSS.insertRule("@keyframes " + name + "{ " + generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity) + "}", CSS.cssRules.length);
+              CSS.insertRule("." + name + " {animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite }", CSS.cssRules.length);
+          } catch (e) {}
+      }
+
+      if(CSS.addRule) {
+          try {
+              CSS.addRule("@-webkit-keyframes " + name, generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity));
+              CSS.addRule("." + name, "-webkit-animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite");
+          } catch (e) {}
+          try {
+              CSS.addRule("@keyframes " + name, generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity));
+              CSS.addRule("." + name, "animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite");
+          } catch (e) {}
+      }
+  }
+
+  var w = $("#main").width(),
+      h = $("#main").height(),
+      starsCount = 2000;
+
+  for(n = 1; n <= starsCount; n++)
+      insertStarRule("s" + n, 5, .2, .7, 8, 20);
+
+  for(i = 0; i < starsCount; i++)
+  {
+      var size = randomIntBetween(2,8),
+          x = Math.min(randomIntBetween(8,w), w-size-5),
+          y = Math.min(randomIntBetween(8,h), h-size-5),
+          elem = $("<div class='star'></div>");
+
+      elem.css({"top": y, "left": x, "width": size, "height": size});
+      elem.addClass("s"+randomIntBetween(8,starsCount));
+      $("#main").append(elem);
+  }
+  </script>
+</body>
+</html>

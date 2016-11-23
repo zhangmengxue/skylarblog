@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>skylar❤艺璇</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://zhangmengxue.com/"/>
+  <updated>2016-11-23T15:08:25.000Z</updated>
+  <id>http://zhangmengxue.com/</id>
+  
+  <author>
+    <name>skylar艺璇</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于博客主题以及HEXO的使用</title>
+    <link href="http://zhangmengxue.com/2016/09/18/hei-hexo/"/>
+    <id>http://zhangmengxue.com/2016/09/18/hei-hexo/</id>
+    <published>2016-09-18T11:56:23.000Z</published>
+    <updated>2016-11-23T15:08:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>博客使用 <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a> 搭建的，他相关的文档介绍在这里 <a href="http://hexo.io/docs/" target="_blank" rel="external">DOC</a>。</p>
+<h2 id="一、下载代码"><a href="#一、下载代码" class="headerlink" title="一、下载代码"></a>一、下载代码</h2><p>现在自己的 github 下新建一个叫做 blog 的仓库。然后到本地找个目录：</p>
+<h3 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir skylarBlog</div><div class="line">cd skylarBlog</div></pre></td></tr></table></figure>
+<h3 id="fork-代码"><a href="#fork-代码" class="headerlink" title="fork 代码"></a>fork 代码</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 初始化</div><div class="line">git init</div><div class="line"># 添加源</div><div class="line">git remote add barret https://github.com/barretlee/skylarblog.git</div><div class="line"># 拉取代码，记得要加 barret</div><div class="line">git pull barret</div></pre></td></tr></table></figure>
+<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 切换主干代码</div><div class="line">git checkout master</div></pre></td></tr></table></figure>
+<a id="more"></a> 
+<h2 id="二、安装-hexo-及相关插件"><a href="#二、安装-hexo-及相关插件" class="headerlink" title="二、安装 hexo 及相关插件"></a>二、安装 hexo 及相关插件</h2><h3 id="第一步先安装-hexo："><a href="#第一步先安装-hexo：" class="headerlink" title="第一步先安装 hexo："></a>第一步先安装 hexo：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># (mac/linux)下使用 sudo安装</div><div class="line">npm install -g hexo</div><div class="line"># 初始化一个 hexo 项目</div><div class="line">hexo init</div></pre></td></tr></table></figure>
+<p>给博客安装 5 个插件：</p>
+<ul>
+<li>hexo-generator-feed</li>
+<li>hexo-renderer-ejs</li>
+<li>hexo-renderer-stylus</li>
+<li>hexo-generator-sitemap</li>
+<li>hexo-renderer-marked</li>
+</ul>
+<p>写在 <code>package.json</code> 文件中，通过 <code>npm install</code> 即可安装。</p>
+<h3 id="安装组件"><a href="#安装组件" class="headerlink" title="安装组件"></a>安装组件</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 运行插件安装命令</div><div class="line">npm install</div><div class="line">简写： npm i</div></pre></td></tr></table></figure>
+<h2 id="三、文件目录及配置"><a href="#三、文件目录及配置" class="headerlink" title="三、文件目录及配置"></a>三、文件目录及配置</h2><pre><code>├── _config.yml       # 配置文件
+├── package.json      # npm 配置文件
+├── public            # 别鸟他
+├── scaffolds         # 别鸟他
+├── source            # 文章全部在这里
+│   ├── CNAME         # 用于配置域名
+│   ├── _posts        # 文章内容（文件夹）
+│   └── about         # 可直接访问的页面
+└── themes            # 主题，可在 _config.yml 中配置主题类型
+    ├── jacman
+    └── landscape
+</code></pre><p>配置 _config.yml，在最后找到：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: github</div><div class="line">  repository: https:<span class="comment">//github.com/barretlee/skylarblog.git</span></div><div class="line">  branch: gh-pages</div></pre></td></tr></table></figure>
+<p>将 repository 改成你自己的地址，<code>https://github.com/zhangmengxue/blog.git</code></p>
+<p>目前在 master 分支下操作，执行下面的命令之后，会在 github 上自动生成一个 gh-pages 分支，这个分支不用理会，它是自动生成的。只需要在这个分支下开发。</p>
+<h2 id="四、快速指南"><a href="#四、快速指南" class="headerlink" title="四、快速指南"></a>四、快速指南</h2><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">简写：hexo g</div></pre></td></tr></table></figure>
+<p>编辑的文档使用的 md 语法，使用 <code>hexo g</code> 将 md 文件编译成 html 文件，然后执行 <code>hexo s</code>就可以在本地预览了。</p>
+<p>更多信息: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="启动本地服务器"><a href="#启动本地服务器" class="headerlink" title="启动本地服务器"></a>启动本地服务器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div><div class="line">简写：hexo s</div></pre></td></tr></table></figure>
+<p>会开启一个端口为 4000 的本地服务器，可以用于本地调试</p>
+<p>更多信息: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="直接将代码部署到-Github-Pages"><a href="#直接将代码部署到-Github-Pages" class="headerlink" title="直接将代码部署到 Github Pages"></a>直接将代码部署到 Github Pages</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div><div class="line">简写： hexo d</div></pre></td></tr></table></figure>
+<p>更多信息: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<h3 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 编译之后，打开本地服务器</div><div class="line">hexo s -g</div><div class="line"># 编译之后，直接发布到 Github Pages</div><div class="line">hexo d -g</div></pre></td></tr></table></figure>
+<h2 id="五、发表文章"><a href="#五、发表文章" class="headerlink" title="五、发表文章"></a>五、发表文章</h2><h3 id="创建一篇新的文章"><a href="#创建一篇新的文章" class="headerlink" title="创建一篇新的文章"></a>创建一篇新的文章</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">new</span> post-name</div><div class="line">简写：hexo n post-name</div></pre></td></tr></table></figure>
+<p>这句命令会在 source/_posts 下生成一个叫做 post-name.md 的文件，然后通过 <code>hexo d -g</code>，打开本地服务器查看网页内容。</p>
+<h3 id="创建一个页面"><a href="#创建一个页面" class="headerlink" title="创建一个页面"></a>创建一个页面</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> page about</div><div class="line">简写：hexo n page about</div></pre></td></tr></table></figure>
+<p>这条命令就可以生成一个 about 页面。</p>
+<p>更多信息: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="把修改保存到自己的-github-上"><a href="#把修改保存到自己的-github-上" class="headerlink" title="把修改保存到自己的 github 上"></a>把修改保存到自己的 github 上</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 添加自己的仓库源</div><div class="line">git remote add skylar https://github.com/zhangmengxue/blog.git</div><div class="line"># 推上去</div><div class="line">git push skylar master</div><div class="line">## 这里需要注意的是，不需要管 gh-pages 分支，这个分支已经被 hexo 自动推送了</div></pre></td></tr></table></figure>
+<h2 id="六、其他方面的介绍"><a href="#六、其他方面的介绍" class="headerlink" title="六、其他方面的介绍"></a>六、其他方面的介绍</h2><p>在 themes/jacman 中可以配置页面信息，css 采用 stylus 写的，博客信息的配置也可在 <code>themes/jacman/_config.yml</code> 中修改。</p>
+<p>如果需要修改文件内容，建议直接在全局搜索关键词。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;博客使用 &lt;a href=&quot;http://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 搭建的，他相关的文档介绍在这里 &lt;a href=&quot;http://hexo.io/docs/&quot;&gt;DOC&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;一、下载代码&quot;&gt;&lt;a href=&quot;#一、下载代码&quot; class=&quot;headerlink&quot; title=&quot;一、下载代码&quot;&gt;&lt;/a&gt;一、下载代码&lt;/h2&gt;&lt;p&gt;现在自己的 github 下新建一个叫做 blog 的仓库。然后到本地找个目录：&lt;/p&gt;
+&lt;h3 id=&quot;新建文件夹&quot;&gt;&lt;a href=&quot;#新建文件夹&quot; class=&quot;headerlink&quot; title=&quot;新建文件夹&quot;&gt;&lt;/a&gt;新建文件夹&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;mkdir skylarBlog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd skylarBlog&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;fork-代码&quot;&gt;&lt;a href=&quot;#fork-代码&quot; class=&quot;headerlink&quot; title=&quot;fork 代码&quot;&gt;&lt;/a&gt;fork 代码&lt;/h3&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# 初始化&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git init&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 添加源&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git remote add barret https://github.com/barretlee/skylarblog.git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 拉取代码，记得要加 barret&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git pull barret&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;切换分支&quot;&gt;&lt;a href=&quot;#切换分支&quot; class=&quot;headerlink&quot; title=&quot;切换分支&quot;&gt;&lt;/a&gt;切换分支&lt;/h3&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# 切换主干代码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git checkout master&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://zhangmengxue.com/categories/hexo/"/>
+    
+    
+      <category term="blog" scheme="http://zhangmengxue.com/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于JSON对象的兼容性和一些小问题</title>
+    <link href="http://zhangmengxue.com/2015/03/16/%E5%85%B3%E4%BA%8EJSON%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/"/>
+    <id>http://zhangmengxue.com/2015/03/16/关于JSON对象的兼容性和一些小问题/</id>
+    <published>2015-03-16T13:52:25.000Z</published>
+    <updated>2016-11-23T03:27:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、JSON对象的一些方法"><a href="#一、JSON对象的一些方法" class="headerlink" title="一、JSON对象的一些方法"></a>一、JSON对象的一些方法</h3><ul>
+<li>JSON.parse()解析JSON字符串返回解析后的JSON对象;</li>
+<li>JSON.stringify()返回指定JSON对象的字符串形式;</li>
+</ul>
+<a id="more"></a> 
+<h3 id="二、JSON对象的兼容性问题"><a href="#二、JSON对象的兼容性问题" class="headerlink" title="二、JSON对象的兼容性问题"></a>二、JSON对象的兼容性问题</h3><p>IE8+才会支持JSON对象。我们可以通过代码自己模拟原生的JSON对象：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank" rel="external">模拟原生JSON对象</a></p>
+<p><strong>[eval和new Function]</strong></p>
+<p>看模拟原生JSON对象的实现我们可以看到实现思路：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span>(str)</div><div class="line">(<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'return'</span>+str))()</div></pre></td></tr></table></figure>
+<p>当我们实际的操作一下，还是会有些小问题的.</p>
+<h3 id="三、一些小问题："><a href="#三、一些小问题：" class="headerlink" title="三、一些小问题："></a>三、一些小问题：</h3><p>(1)利用eval()函数解析JSON对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// SyntaxError: Unexpected token :</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'&#123;"name":"skylar"&#125;'</span>)</div></pre></td></tr></table></figure>
+<p>这是为什么呢？其实是{}做的怪。{}的用处无非两个，（1）用于创建对象；（2）创建代码块，并且当{}位于语句的开头时，代码就会被当成代码块来解析。这里eval()中明显就是把对象当成代码块来解析了，所以就报错了。</p>
+<p>解决方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &#123;"name": "skylar"&#125;并且注意JSON中的key和value要使用双引号，避免出错</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">"("</span> + str + <span class="string">")"</span>);</div><div class="line"><span class="comment">//或</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'0,'</span> + str);</div></pre></td></tr></table></figure>
+<p>(2)JSON.parse()不允许逗号结尾：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// both will throw a SyntaxError</span></div><div class="line"><span class="built_in">JSON</span>.parse(<span class="string">"[1, 2, 3, 4, ]"</span>);</div><div class="line"><span class="built_in">JSON</span>.parse(<span class="string">"&#123; \"foo\" : 1, &#125;"</span>);</div></pre></td></tr></table></figure>
+<h3 id="四、参考资料："><a href="#四、参考资料：" class="headerlink" title="四、参考资料："></a>四、参考资料：</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="external">JSON.stringify</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="external">JSON.parse</a></p>
+<p><a href="http://javascript.ruanyifeng.com/stdlib/json.html" target="_blank" rel="external">JSON对象</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一、JSON对象的一些方法&quot;&gt;&lt;a href=&quot;#一、JSON对象的一些方法&quot; class=&quot;headerlink&quot; title=&quot;一、JSON对象的一些方法&quot;&gt;&lt;/a&gt;一、JSON对象的一些方法&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;JSON.parse()解析JSON字符串返回解析后的JSON对象;&lt;/li&gt;
+&lt;li&gt;JSON.stringify()返回指定JSON对象的字符串形式;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="技术文" scheme="http://zhangmengxue.com/tags/%E6%8A%80%E6%9C%AF%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>相识HTML5 canvas</title>
+    <link href="http://zhangmengxue.com/2015/02/25/canvas/"/>
+    <id>http://zhangmengxue.com/2015/02/25/canvas/</id>
+    <published>2015-02-25T14:58:44.000Z</published>
+    <updated>2016-11-23T03:33:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。</p>
+<p>文章导读<br>    1.必备技能<br>    2.用于画图的函数<br>    3.图像的处理</p>
+<a id="more"></a> 
+<h3 id="一、必备技能"><a href="#一、必备技能" class="headerlink" title="一、必备技能"></a>一、必备技能</h3><p>这是一个canvas标签：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=<span class="string">"c1"</span> width=<span class="string">"400"</span> height=<span class="string">"400"</span>&gt;</div><div class="line">	&lt;span&gt;注意：不支持canvas的浏览器就会显示这个span标签中的内容,并且在css中定义canvas的宽高是等比例缩放的，canvas中行内的宽高样式才是画布的大小&lt;/span&gt;</div><div class="line">&lt;<span class="regexp">/canvas&gt;</span></div></pre></td></tr></table></figure>
+<p>控制它的宽高是要写在行内样式中的，像上面那样。这样我们就有了一个canvas元素，然后我们就可以去操作它了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'Canvas'</span>);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (canvas.getContext) &#123;</div><div class="line">    <span class="keyword">var</span> content = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>获取元素的同时，还要获取canvas的2D绘图环境。要是用于3D绘图的话，就要用WebGL了。</p>
+<h3 id="二、用于画图的函数"><a href="#二、用于画图的函数" class="headerlink" title="二、用于画图的函数"></a>二、用于画图的函数</h3><p>然后，我们要开始在画布上绘图了。它的画布是这样的网格：</p>
+<p><img src="/img/canvas.png" alt="图1"></p>
+<p><strong>2.1矩形</strong></p>
+<p>canvas中只支持这一种形状的函数，别的形状就都要自己组合来实现了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fillRect(x, y, width, height) <span class="comment">//画一个填充的矩形</span></div><div class="line">strokeRect(x, y, width, height) <span class="comment">//画一个只有边框的矩形</span></div><div class="line">clearRect(x, y, width, height) <span class="comment">//清除指定的矩形区域</span></div></pre></td></tr></table></figure>
+<p>其中的（x,y）是指矩形左上角的坐标。</p>
+<p><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E7%9F%A9%E5%BD%A2.html" target="_blank" rel="external">查看源码</a><br><a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E7%9F%A9%E5%BD%A2.html" target="_blank" rel="external">运行结果</a></p>
+<p><strong>2.2路径</strong></p>
+<pre><code>1.首先，创建一条路径－－beginPath()
+2.然后，通过一些绘图的方法做一些绘图操作
+3.然后关闭路径－－closePath()
+4.我们已经把路径创建好了，然后就是填充或者绘制路径到我们的画布上－－stroke()/fill()
+</code></pre><p>比如说画一个三角形：<a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2.html" target="_blank" rel="external">查看源码</a>    <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2.html" target="_blank" rel="external">运行结果</a></p>
+<p>需要注意的是其中两个三角形，颜色不同，一不小心可能会出问题，所以我们有时可能需要save()和restore()函数的帮助来达到局部作用的效果。<br>canvas还提供了两个移动画笔的函数：</p>
+<pre><code>moveTo(x, y) //将画笔移动到指定的(x,y)的位置
+lineTo(x, y) //在当前画笔的位置到指定的(x,y)位置画一条线
+</code></pre><p>尝试一下moveTo()方法我们可以画个笑脸：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E4%B8%AA%E7%AC%91%E8%84%B8.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E4%B8%AA%E7%AC%91%E8%84%B8.html" target="_blank" rel="external">运行结果</a></p>
+<p>结合使用moveTo和lineTo方法，我们可以实现鼠标像画笔一样在画板上绘图的效果：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E9%BC%A0%E6%A0%87%E7%BB%98%E5%9B%BE.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E9%BC%A0%E6%A0%87%E7%BB%98%E5%9B%BE.html" target="_blank" rel="external">运行结果</a></p>
+<p>然后我们严格的按照上面说的规范步骤，1，2，3，4并结合画圆的函数，可以自己绘制一个钟表，稍加改进就是个嘀嗒嘀嗒走的时钟了：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E9%92%9F%E8%A1%A8.html" target="_blank" rel="external">查看代码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E9%92%9F%E8%A1%A8.html" target="_blank" rel="external">运行结果</a></p>
+<p> <strong>2.3文字</strong></p>
+<pre><code>fillText(&apos;要显示的文本&apos;，x坐标，y坐标)此方法不支持文本断行，要显示多行文本只能多次调用
+</code></pre><p>通过fillText()方法我们可以在canvas画布上写文字：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E6%96%87%E6%9C%AC.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E6%96%87%E6%9C%AC.html" target="_blank" rel="external">运行结果</a></p>
+<p><strong>2.4圆形和扇形</strong></p>
+<pre><code>ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+(x,y)－－圆心坐标
+radius－－半径
+startAngle－－扇形的起始角度（弧度）
+endAngle－－扇形的终止角度（弧度）
+anticlockwise－－做图时是顺时针画（true）还是逆时针（false）画
+</code></pre><p><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E5%9C%86%E5%BD%A2%E5%92%8C%E6%89%87%E5%BD%A2.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E5%9C%86%E5%BD%A2%E5%92%8C%E6%89%87%E5%BD%A2.html" target="_blank" rel="external">运行结果</a></p>
+<p>结合对rgb颜色的相关操作，我们可以做出类似调色板的效果：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E8%B0%83%E8%89%B2%E6%9D%BF.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E8%B0%83%E8%89%B2%E6%9D%BF.html" target="_blank" rel="external">运行结果</a></p>
+<p><strong>2.5不规则图形</strong></p>
+<p>我们可以通过画曲线来得到不规则的图形，canvas为我们提供了两个高大上的函数：</p>
+<pre><code>－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+#quadraticCurveTo(cp1x, cp1y, x, y)
+(cp1x,cp1y)－－控制点
+此函数表示从当前的画笔位置到（x，y）画一条二次曲线
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+#bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+(cp1x,cp1y)－－控制点1  (cp2x,cp2y)－－控制点2
+此函数表示从当前的画笔位置到（x，y）画一条bezier曲线
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+</code></pre><p>这两个曲线具体含义我也不太清楚，但大概是这个样子：</p>
+<p><img src="/img/canvas2.png" alt="图2"></p>
+<p>画个会话气泡试一下quadraticCurveTo函数：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E4%B8%AA%E4%BC%9A%E8%AF%9D%E6%B0%94%E6%B3%A1.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E4%B8%AA%E4%BC%9A%E8%AF%9D%E6%B0%94%E6%B3%A1.html" target="_blank" rel="external">运行结果</a></p>
+<p>画个心形试一下bezierCurveTo函数：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E7%94%BB%E5%BF%83%E5%BD%A2.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E7%94%BB%E5%BF%83%E5%BD%A2.html" target="_blank" rel="external">运行结果</a></p>
+<p><strong>2.6渐变和阴影</strong></p>
+<pre><code>＃渐变：
+var myGradient = ctx.createLinearGradient(x1, y1, x2, y2);
+(x1,y1)－－起点坐标  (x2,y2)－－终点坐标
+myGradient.addColorStop(0, &quot;#BABABA&quot;);
+－－添加起始颜色
+myGradient.addColorStop(1, &quot;#636363&quot;);
+－－添加终止的颜色
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
+＃阴影
+ctx.shadowOffsetX = 10; // 设置水平位移
+ctx.shadowOffsetY = 10; // 设置垂直位移
+ctx.shadowBlur = 5; // 设置模糊度
+ctx.shadowColor = &quot;rgba(0,0,0,0.5)&quot;; // 设置阴影颜色
+</code></pre><p>一个也不太搭边儿的例子，不管怎么说，也用到了渐变呢，满是星星的星球：<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E6%98%9F%E7%90%83%E9%87%8C%E7%9A%84%E6%98%9F%E6%98%9F.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E6%98%9F%E7%90%83%E9%87%8C%E7%9A%84%E6%98%9F%E6%98%9F.html" target="_blank" rel="external">运行结果</a><br>这里面用到了clip（）方法来实现星星，这跟某css属性clip－path比较神似，我以前尝试过：<br>请戳：<a href="https://github.com/zhangmengxue/Practice/blob/master/clip-path%E7%A5%9E%E6%8A%80%E5%B7%A7.html" target="_blank" rel="external">源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/clip-path%E7%A5%9E%E6%8A%80%E5%B7%A7.html" target="_blank" rel="external">示例</a></p>
+<p><strong>2.7变换</strong></p>
+<p>canvas中有我们熟悉的几个变换函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">translate(x, y) －－平移</div><div class="line">rotate(angle) －－旋转</div><div class="line">scale(x, y) －－缩放</div><div class="line">transform(a, b, c, d, e, f) －－变换</div><div class="line">上面的变换函数是根据变换矩阵进行的：</div><div class="line">   a   c   e</div><div class="line">［ b   d   f ］</div><div class="line">   <span class="number">0</span>   <span class="number">0</span>   <span class="number">1</span></div></pre></td></tr></table></figure>
+<p>简单的小例子：<a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/%E6%97%8B%E8%BD%AC%E7%9A%84%E5%B0%8F%E6%96%B9%E5%9D%97.html" target="_blank" rel="external">查看源码</a>   <a href="https://rawgit.com/zhangmengxue/Practice/master/canvas/%E6%97%8B%E8%BD%AC%E7%9A%84%E5%B0%8F%E6%96%B9%E5%9D%97.html" target="_blank" rel="external">运行结果</a></p>
+<h3 id="三、图像处理"><a href="#三、图像处理" class="headerlink" title="三、图像处理"></a>三、图像处理</h3><p>几个关键函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myImageData = ctx.createImageData(width, height);</div><div class="line">ctx.getImageData(left, top, width, height);<span class="comment">//读取canvas的内容，返回一个对象且该对象有一个data属性，可以供我们操作页面的像素。</span></div><div class="line">ctx.putImageData(myImageData, dx, dy);<span class="comment">//将操作好的对象重新绘制在画布中</span></div><div class="line">ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>); <span class="comment">// 我们常用的drawImage方法，设置对应的图像对象，以及它在画布上的位置</span></div></pre></td></tr></table></figure>
+<p>通过getImageData()方法获取到图像对象，访问它的data属性就可以得到一个像素数组，我们对像素进行处理，使我们可以用canvas处理图像。</p>
+<p><strong>3.1 灰度效果</strong></p>
+<p>灰度图（grayscale）就是取红、绿、蓝三个像素值的算术平均值，这实际上将图像转成了黑白形式。假定d[i]是像素数组中一个象素的红色值，则d[i+1]为绿色值，d[i+2]为蓝色值，d[i+3]就是alpha通道值。转成灰度的算法，就是将红、绿、蓝三个值相加后除以3，再将结果写回数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;data.length;i+=<span class="number">4</span>)&#123;</div><div class="line">       <span class="keyword">var</span> avg = (data[i]+data[i+<span class="number">1</span>]+data[i+<span class="number">2</span>]) / <span class="number">3</span>;</div><div class="line">       data[i] = avg; <span class="comment">//r</span></div><div class="line">       data[i+<span class="number">1</span>] = avg; <span class="comment">//g</span></div><div class="line">       data[i+<span class="number">2</span>] = avg; <span class="comment">//b</span></div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><strong>3.2 复古效果</strong></p>
+<p>复古效果（sepia）则是将红、绿、蓝三个像素，分别取这三个值的某种加权平均值，使得图像有一种古旧的效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; d.length; i += <span class="number">4</span>) &#123;</div><div class="line">	<span class="keyword">var</span> r = d[i];</div><div class="line">	<span class="keyword">var</span> g = d[i + <span class="number">1</span>];</div><div class="line">	<span class="keyword">var</span> b = d[i + <span class="number">2</span>];</div><div class="line">	d[i]     = (r * <span class="number">0.393</span>)+(g * <span class="number">0.769</span>)+(b * <span class="number">0.189</span>); <span class="comment">// red</span></div><div class="line">	d[i + <span class="number">1</span>] = (r * <span class="number">0.349</span>)+(g * <span class="number">0.686</span>)+(b * <span class="number">0.168</span>); <span class="comment">// green</span></div><div class="line">	d[i + <span class="number">2</span>] = (r * <span class="number">0.272</span>)+(g * <span class="number">0.534</span>)+(b * <span class="number">0.131</span>); <span class="comment">// blue</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>3.3 反转效果</strong></p>
+<p>反转效果（invert）是指图片呈现一种色彩颠倒的效果。算法为红、绿、蓝通道都取各自的相反值（255-原值）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; d.length; i += <span class="number">4</span>) &#123;</div><div class="line">       d[i] = <span class="number">255</span> - d[i];</div><div class="line">       d[i+<span class="number">1</span>] = <span class="number">255</span> - d[i + <span class="number">1</span>];</div><div class="line">       d[i+<span class="number">2</span>] = <span class="number">255</span> - d[i + <span class="number">2</span>];</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>我尝试了一下灰度图的效果和反转图的效果： <a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/canvas%E5%9B%BE%E5%83%8F%E6%95%88%E6%9E%9C.html" target="_blank" rel="external">查看源码</a><br>注意，在我们自己本地写demo准备运行查看结果的时候，getImageData()方法可能会有问题，比如说报这个错：Failed to execute ‘getImageData’ on ‘CanvasRenderingContext2D’: The canvas has been tainted by cross-origin data<br>我们知道这是域和本地运行等相关的问题，这时我们自己本地启用服务器，localhost访问就可以了。</p>
+<p><strong>3.4 拾色器</strong></p>
+<p>实现思路：通过getImageData(x,y,1,1)获得当前鼠标所在位置的一像素的图像对象，通过其data属性操作拿到它的像素值，也就是我们想得到的rgb值。<br><a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/canvas%E6%8B%BE%E8%89%B2%E5%99%A8.html" target="_blank" rel="external">查看源码</a></p>
+<p><strong>3.5 放大镜</strong></p>
+<p>实际上drawImage方法可以有多个参数，提供更加丰富的功能：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>  ctx.drawImage(image, dx, dy);</div><div class="line"><span class="number">2</span>  ctx.drawImage(image, dx, dy, dWidth, dHeight);</div><div class="line"><span class="number">3</span>  ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);</div></pre></td></tr></table></figure>
+<p>各个参数就像下面的示意图这样：</p>
+<p><img src="/img/canvas3.png" alt="图3"></p>
+<p>然后我们就可以使用drawImage方法在原图像变换到绘制的图像中做一个等比放大的操作，就可以实现放大镜的效果啦： <a href="https://github.com/zhangmengxue/Practice/blob/master/canvas/canvas%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C.html" target="_blank" rel="external">查看源码</a></p>
+<p><strong>3.6图像的高斯模糊</strong></p>
+<p>其实，css中有一个兼容性不那么好的filter属性，可以简单的实现图像模糊的效果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-webkit-filter: blur(<span class="number">20</span>px); <span class="comment">/* Chrome, Opera */</span></div><div class="line">   -moz-filter: blur(<span class="number">20</span>px);</div><div class="line">    -ms-filter: blur(<span class="number">20</span>px);</div><div class="line">        filter: blur(<span class="number">20</span>px);</div></pre></td></tr></table></figure>
+<p>但是使用canvas可以实现真正意义上的高斯模糊（就是算法那种balabala的）。<br>这里有一个实现的很好的高斯模糊的js：<a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html" target="_blank" rel="external">StackBlur</a><br>使用它我们就可以轻松的实现图像的高斯模糊了：<a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html" target="_blank" rel="external">查看源码</a></p>
+<h3 id="四、资源"><a href="#四、资源" class="headerlink" title="四、资源"></a>四、资源</h3><p>canvas中绘图环境所有的属性和方法都可以在这里找到：<a href="https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D" target="_blank" rel="external">CanvasRenderingContext2D interface</a></p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2013/11/%E5%B0%8Ftip-%E4%BD%BF%E7%94%A8css%E5%B0%86%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A8%A1%E7%B3%8A%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/" target="_blank" rel="external">使用CSS将图片转换成模糊(毛玻璃)效果</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank" rel="external">Canvas API</a></p>
+<p><a href="http://javascript.ruanyifeng.com/htmlapi/canvas.html" target="_blank" rel="external">javascript标准参考教程Canvas</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。&lt;/p&gt;
+&lt;p&gt;文章导读&lt;br&gt;    1.必备技能&lt;br&gt;    2.用于画图的函数&lt;br&gt;    3.图像的处理&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术文" scheme="http://zhangmengxue.com/tags/%E6%8A%80%E6%9C%AF%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>运算符中的一些小技巧</title>
+    <link href="http://zhangmengxue.com/2015/02/23/%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://zhangmengxue.com/2015/02/23/运算符/</id>
+    <published>2015-02-23T09:26:27.000Z</published>
+    <updated>2016-11-23T03:29:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>记下一些关于运算符的小技巧或容易出错的地方</li>
+</ul>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="%运算符"></a>%运算符</h3><hr>
+<p>取余运算符运算结果的正负号由第一个运算子的正负号决定，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">-1</span> % <span class="number">2</span> <span class="comment">// -1</span></div><div class="line"><span class="number">1</span> % <span class="number">-2</span> <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<p>所以有时候对负数取余会出现错误，使用绝对值函数可以避免错误：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 会出错</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isOdd</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> n % <span class="number">2</span> === <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">isOdd(<span class="number">-5</span>) <span class="comment">// false</span></div><div class="line">isOdd(<span class="number">-4</span>) <span class="comment">// false</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 正确了</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isOdd</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.abs(n % <span class="number">2</span>) === <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">isOdd(<span class="number">-5</span>) <span class="comment">// true</span></div><div class="line">isOdd(<span class="number">-4</span>) <span class="comment">// false</span></div></pre></td></tr></table></figure>
+<a id="more"></a> 
+<h3 id="运算符-1"><a href="#运算符-1" class="headerlink" title="+运算符"></a>+运算符</h3><hr>
+<p>+运算符与其他运算符不太一样，我们知道它可以用来连接字符串操作，是因为用+运算符的时候它通常会将其他类型的值转为字符串，但是除了它比如说-运算符等都会将其他类型的值转换为数值，像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="keyword">typeof</span> (now + <span class="number">1</span>) <span class="comment">// "string"</span></div><div class="line"><span class="keyword">typeof</span> (now - <span class="number">1</span>) <span class="comment">// "number"</span></div></pre></td></tr></table></figure>
+<p>当运算子中出现对象的时候：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> + [<span class="number">1</span>,<span class="number">2</span>]</div><div class="line"><span class="comment">// "11,2"</span></div><div class="line"><span class="number">1</span> + &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</div><div class="line"><span class="comment">// "1[object Object]"</span></div></pre></td></tr></table></figure>
+<p>则先调用该对象的valueOf方法。如果返回结果为原始类型的值，则转换为字符串；否则继续调用该对象的toString方法，然后转换为字符串。<br>但是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attr">a</span>:<span class="number">1</span>&#125; + <span class="number">1</span></div><div class="line"><span class="comment">// 1</span></div><div class="line">(&#123;<span class="attr">a</span>:<span class="number">1</span>&#125;)+<span class="number">1</span></div><div class="line"><span class="string">"[object Object]1"</span></div></pre></td></tr></table></figure>
+<p>这是为什么呢？此时{a:1}被当做了代码块处理，而这个代码块没有返回值，所以整个表达式就返回1了。但是放在了圆括号中的{a:1}，因为js预期()中是一个值，所以它就又被当做对象处理了。</p>
+<p><strong>特殊表达式：</strong></p>
+<ul>
+<li>空数组+空数组</li>
+</ul>
+<p>先调用valueOf()返回空数组本身，再调用toString()，返回空字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[] + []</div><div class="line"><span class="comment">// ""</span></div></pre></td></tr></table></figure>
+<ul>
+<li>空数组+空对象</li>
+</ul>
+<p>[]得到’’，{}得到”[object Object]”</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[] + &#123;&#125;</div><div class="line"><span class="comment">// "[object Object]"</span></div></pre></td></tr></table></figure>
+<ul>
+<li>空对象+空数组</li>
+</ul>
+<p>{}被视作代码块省略，+[]就是将[]转换为数值的意思了得到0.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#125; + []</div><div class="line"><span class="comment">// 0</span></div></pre></td></tr></table></figure>
+<ul>
+<li>空对象+空对象</li>
+</ul>
+<p>同样{}被当做代码块省略了，+{}转数值得到NaN</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#125; + &#123;&#125;</div><div class="line"><span class="comment">// NaN</span></div></pre></td></tr></table></figure>
+<p>如果第一个空对象不被当做空代码块的话：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(&#123;&#125;) + &#123;&#125;</div><div class="line"><span class="comment">// "[object Object][object Object]"</span></div><div class="line"></div><div class="line">(&#123;&#125; + &#123;&#125;)</div><div class="line"><span class="comment">// "[object Object][object Object]"</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(&#123;&#125; + &#123;&#125;)</div><div class="line"><span class="comment">// "[object Object][object Object]"</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> a = &#123;&#125; + &#123;&#125;;</div><div class="line">a</div><div class="line"><span class="comment">// "[object Object][object Object]"</span></div></pre></td></tr></table></figure>
+<p>此外，当+运算符作为数值运算符放在其他值前面的时候，可以用于将任何值转为数值，就像Number函数那样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+<span class="literal">true</span> <span class="comment">// 1</span></div><div class="line">+[] <span class="comment">// 0</span></div><div class="line">+&#123;&#125; <span class="comment">// NaN</span></div></pre></td></tr></table></figure>
+<h3 id="！取反运算符"><a href="#！取反运算符" class="headerlink" title="！取反运算符"></a>！取反运算符</h3><hr>
+<p>！取反运算符连续对同一个值进行取反运算等于将其转换为对应的布尔值，就像Boolean函数那样：</p>
+<pre><code>!!x
+
+// 等同于
+
+Boolean(x)
+</code></pre><p>此外，如果我们想排除null这个对象，可以这样写:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!!x)&#123;</div><div class="line">	<span class="comment">//do something!</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这是因为:!!null 值是 false，其他的 object !!obj 值都是 true。</p>
+<h3 id="否运算符"><a href="#否运算符" class="headerlink" title="~否运算符"></a>~否运算符</h3><hr>
+<p>~运算符是根据值的二进制二进制形式进行运算的。</p>
+<pre><code>~ 3 // -4
+</code></pre><p>它的运算原理就是根据数值的32位二进制整数形式运算，补码存储的原理如果是负数，需要将取反后的值减一再取反然后加上负号。<br>比较麻烦，但是我们可以记成一个值与它取反后的值相加等于-1.</p>
+<pre><code>~~2.9
+// 2
+</code></pre><p>两次否运算能够对小数取整，并且这是取整方法中最快的一种。</p>
+<h3 id="异或运算符"><a href="#异或运算符" class="headerlink" title="^异或运算符"></a>^异或运算符</h3><hr>
+<p>两次异或运算交换两个数的值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="number">99</span>;</div><div class="line"></div><div class="line">a^=b, b^=a, a^=b;</div><div class="line"></div><div class="line">a <span class="comment">// 99</span></div><div class="line">b <span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<h3 id="lt-lt-左移运算符"><a href="#lt-lt-左移运算符" class="headerlink" title="&lt;&lt; 左移运算符"></a>&lt;&lt; 左移运算符</h3><hr>
+<p>左移0位可用于取整：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">13.5</span> &lt;&lt; <span class="number">0</span></div><div class="line"><span class="comment">// 13</span></div><div class="line"></div><div class="line"><span class="number">-13.5</span> &lt;&lt; <span class="number">0</span></div><div class="line"><span class="comment">// -13</span></div></pre></td></tr></table></figure>
+<p>左移运算可以将颜色的RGB值转为HEX值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> color = &#123;<span class="attr">r</span>: <span class="number">186</span>, <span class="attr">g</span>: <span class="number">218</span>, <span class="attr">b</span>: <span class="number">85</span>&#125;;</div><div class="line"></div><div class="line"><span class="comment">// RGB to HEX</span></div><div class="line"><span class="keyword">var</span> rgb2hex = <span class="function"><span class="keyword">function</span>(<span class="params">r, g, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'#'</span> + ((<span class="number">1</span> &lt;&lt; <span class="number">24</span>) + (r &lt;&lt; <span class="number">16</span>) + (g &lt;&lt; <span class="number">8</span>) + b).toString(<span class="number">16</span>).substr(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">rgb2hex(color.r,color.g,color.b)</div><div class="line"><span class="comment">// "#bada55"</span></div></pre></td></tr></table></figure>
+<h3 id="gt-gt-右移运算"><a href="#gt-gt-右移运算" class="headerlink" title="&gt;&gt; 右移运算"></a>&gt;&gt; 右移运算</h3><hr>
+<p>右移运算可以模拟2的整除运算：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="number">5</span> &gt;&gt; <span class="number">1</span></div><div class="line"><span class="comment">// 相当于 5 / 2 = 2</span></div><div class="line"></div><div class="line"><span class="number">21</span> &gt;&gt; <span class="number">2</span></div><div class="line"><span class="comment">// 相当于 21 / 4 = 5</span></div><div class="line"></div><div class="line"><span class="number">21</span> &gt;&gt; <span class="number">3</span></div><div class="line"><span class="comment">// 相当于 21 / 8 = 2</span></div><div class="line"></div><div class="line"><span class="number">21</span> &gt;&gt; <span class="number">4</span></div><div class="line"><span class="comment">// 相当于 21 / 16 = 1</span></div></pre></td></tr></table></figure>
+<p>此外，void运算符的作用是用来执行一个表达式，然后返回undefined，而且它的运算符优先级也比较高void 4+7 实际上等同于 (void 4) +7。一般运算符是左结合的，但是=和三目运算符？：却是右结合的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">w = x = y = z;</div><div class="line">q = a?b:c?d:e?f:g;</div><div class="line">w = (x = (y = z));</div><div class="line">q = a?b:(c?d:(e?f:g));</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;记下一些关于运算符的小技巧或容易出错的地方&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;运算符&quot;&gt;&lt;a href=&quot;#运算符&quot; class=&quot;headerlink&quot; title=&quot;%运算符&quot;&gt;&lt;/a&gt;%运算符&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;取余运算符运算结果的正负号由第一个运算子的正负号决定，比如：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt; % &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// -1&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; % &lt;span class=&quot;number&quot;&gt;-2&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// 1&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;所以有时候对负数取余会出现错误，使用绝对值函数可以避免错误：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 会出错&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isOdd&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;n&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; n % &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; === &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;isOdd(&lt;span class=&quot;number&quot;&gt;-5&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// false&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;isOdd(&lt;span class=&quot;number&quot;&gt;-4&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// false&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 正确了&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isOdd&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;n&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Math&lt;/span&gt;.abs(n % &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) === &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;isOdd(&lt;span class=&quot;number&quot;&gt;-5&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// true&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;isOdd(&lt;span class=&quot;number&quot;&gt;-4&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// false&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="技术文" scheme="http://zhangmengxue.com/tags/%E6%8A%80%E6%9C%AF%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>再看Ajax</title>
+    <link href="http://zhangmengxue.com/2015/02/01/ajax/"/>
+    <id>http://zhangmengxue.com/2015/02/01/ajax/</id>
+    <published>2015-02-01T06:00:35.000Z</published>
+    <updated>2016-11-23T03:31:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>再回顾Ajax相关的内容，再次梳理学习还是很有必要的，尤其是实际的开发中，ajax更是必不可少，仔细学习以便避免不必要的错误。</p>
+<p>##一.使用XMLHttpRequest</p>
+<p>从Ajax的工作原理来看，它是一种可以使用脚本操纵HTTP和Web服务器进行数据交换并且不会导致页面重载的技术。Ajax的核心就是XMLHttpRequest对象。</p>
+<pre><code>var xhr = new XMLHttpRequest();
+</code></pre><p>这样就实例化了一个XMLHttpRequest对象，每个xhr对象都表示一个独立的请求响应对，通过这个对象的属性和方法我们可以查看请求的细节和得到响应的数据。</p>
+<a id="more"></a> 
+<p>1.1 必备知识点</p>
+<p>下面举个梨子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getText</span>(<span class="params">url,callback</span>)</span>&#123;</div><div class="line">       <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">       xhr.open(<span class="string">'GET'</span>,url);</div><div class="line">       xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">         <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>)&#123;</div><div class="line">           <span class="keyword">var</span> type = xhr.getResponseHeader(<span class="string">'Content-Type'</span>);</div><div class="line">           <span class="keyword">if</span>(type.match(<span class="regexp">/^text/</span>))&#123;</div><div class="line">             callback(xhr.responseText);</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;;</div><div class="line">      xhr.send(<span class="literal">null</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(obj);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>从中可以看到一些xhr对象的方法和属性：</p>
+<p>—  xhr.setRequestHeader(“Content-Type”,”text/plain”);它用来设置请求头的信息，post请求通常会设置前面的Content-Type的请求头，比如说我想跨域发送请求，那你可能就要设置xhr.setRequestHeader(“Origin”,”url”)了(要真的跨域还需要在服务器端设置Access-Control-Allow-Origin)。但是并不能设置所有的请求头信息，你可以设置除了下面这些头之外的信息：Accept-Charset,Accept-Encoding,Connection,Content-Length,Cookie,Cookie2,Content-Transfer-Encoding,Date,Expect,Host,Keep-Alive,Referrer,User-Agent,Trailer,Transfer-Encoding,Upgrade,Via.</p>
+<p>—  xhr.getResponseHeader()和xhr.getAllResponseHeader()用来查询响应头信息。</p>
+<p>—  xhr.status(数字)和xhr.statusText(文本)返回HTTP状态码(200,404等)；</p>
+<p>—  xhr.responseText(文本形式)和xhr.responseXML(document形式)得到响应主体；</p>
+<p>—  xhr.readyState得到一个整数，指定了HTTP请求的状态，有如下对应关系：</p>
+<pre><code>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+常量                            值                    含义
+-----------------------------------------------------------------------------
+UNSENT                         0                    open()尚未调用
+OPENED                         1                    open()已调用
+HEADERS_RECEIVED    　　　　　   2                    接收到头信息
+LOADING                        3                     接收到响应主体
+DONE                           4                     响应完成
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+</code></pre><p>— xhr.overrideMimeType(‘text/plain;charset=x-user-defined’);overrideMimeType方法用来指定服务器返回的数据的Mime类型；</p>
+<p>— xhr.responseType属性，它用来指定服务器返回的数据的类型，xhr2允许用户自行设置这个属性了(上面的overrideMimeType方法就是一般在不支持这个属性的情况下使用的)。</p>
+<p>　　xhr.responseType=’text’(字符串)/‘arrayBuffer’/‘blob’(二进制数据)/‘document’/‘json’(JSON对象)</p>
+<p>—  事件：XMLHttpRequest对象原本只有一个事件xhr.onreadystatechange = function(){}，但是XMLHttpRequest2扩展了几个新的事件：</p>
+<pre><code>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+事件                        描述
+------------------------------------------------------------------------------
+onloadstart                请求开始时触发
+onprogress                 开始加载并发送数据时触发
+onabort                    请求终止时出发，比如调用了abort()方法
+onerror                    请求失败时触发
+onload                     请求成功完成时触发
+ontimeout                  自定义的超时时间超过，请求还没完成时触发
+onloadend                  请求完成时触发（success or failure）
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+</code></pre><p>1.2 send()方法</p>
+<p>请求中的send()方法，通常在发送POST请求时用于发送主体数据，发送GET请求时通常为空。</p>
+<p>在XHR2中send()方法可以发送很多类型的数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> send();</div><div class="line"><span class="keyword">void</span> send(<span class="built_in">ArrayBuffer</span> data);</div><div class="line"><span class="keyword">void</span> send(Blob data); <span class="comment">//用来发送二进制数据（这使得通过Ajax上传文件成为了可能）</span></div><div class="line"><span class="keyword">void</span> send(Document data);</div><div class="line"><span class="keyword">void</span> send(DOMString data);</div><div class="line"><span class="keyword">void</span> send(FormData data); <span class="comment">//用于构造表单数据</span></div></pre></td></tr></table></figure>
+<p>通过Ajax提交表单数据还是很有意义的。传统的做法中，点击页面中表单的submit按钮，需要跳转到一个空页面，然后再对原页面的数据进行处理。ajax则不用，可以直接在原页面进行提交后的处理。</p>
+<p>发送FormData类型的数据为我们提供了便利：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData();</div><div class="line"></div><div class="line">formData.append(<span class="string">'username'</span>,<span class="string">'mengxue'</span>);<span class="comment">//第一个参数为&lt;input&gt;标签的name属性</span></div><div class="line">formData.append(<span class="string">'email'</span>,<span class="string">'673013891@qq.com'</span>);<span class="comment">//第二个参数为value属性</span></div><div class="line">formData.append(<span class="string">'city'</span>,<span class="string">'hangzhou'</span>);</div><div class="line"></div><div class="line"><span class="comment">//现有表单中没有的数据也可以构造在请求中</span></div><div class="line">formData.append(<span class="string">'birthday'</span>, <span class="string">'930920'</span>);</div><div class="line"></div><div class="line">xhr.send(formData);</div></pre></td></tr></table></figure>
+<p>1.3  再看CORS</p>
+<p>CORS（跨域资源共享），它的出现就是为了解救Ajax受限于同源策略，实现跨域。</p>
+<p>预检机制：</p>
+<p>我们可能只知道要实现跨域要请求头带上Origin头，并且服务器响应Access-Control-Request-Method头表示同意跨域的请求。但其实我们忽略了它背后的一个预检机制，也就是说会有类似这样一个预检请求：</p>
+<pre><code>1 OPTIONS /resources/post-here/ HTTP/1.1
+ 2 Host: www.google.com
+ 3 User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
+ 4 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+ 5 Accept-Language: en-us,en;q=0.5
+ 6 Accept-Encoding: gzip,deflate
+ 7 Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+ 8 Connection: keep-alive
+9 Origin: http://www.example.com
+10 Access-Control-Request-Method: POST
+11 Access-Control-Request-Headers: X-PINGOTHER
+</code></pre><p>OPTIONS就是告诉我们这是一个“预检”请求。里面有关键的Origin头信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Request-Method: POST</div><div class="line">Access-Control-Request-Headers: X-PINGOTHER</div></pre></td></tr></table></figure>
+<p>这两个头信息就告诉服务器，如果我发送请求的话将会是POST请求，我还可能自己定义个X-PINGOTHER的请求头信息。</p>
+<p>同样的，服务器也会响应这个预检的请求：</p>
+<pre><code>HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 01:15:39 GMT
+Server: Apache/2.0.61 (Unix)
+Access-Control-Allow-Origin: http://www.example.com
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Headers: X-PINGOTHER
+Access-Control-Max-Age: 1728000
+Vary: Accept-Encoding, Origin
+Content-Encoding: gzip
+Content-Length: 0
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+Content-Type: text/plain
+</code></pre><p>我们期待服务器同意我的跨域请求的Access-Control-Allow-Origin头也有了，告诉我服务器同意了。也同意了我想自定义一个请求头信息的愿望。</p>
+<p>下面还有一个响应头信息：</p>
+<pre><code>Access-Control-Max-Age: 1728000
+</code></pre><p>它呢，是用来控制这条预检请求的缓存时长的，在这1728000秒之内，都不用再发送预检请求了。</p>
+<p>因为整个预检的过程都是浏览器在后台神不知鬼不觉完成的，所以我们都不知道。</p>
+<p>CORS中的Cookie：</p>
+<p>CORS机制默认是不会发送cookie信息和HTTP的认证信息的，除非我们改变设置。可以这样：</p>
+<pre><code>xhr.withCredentials = true;
+</code></pre><p>同时服务器响应：</p>
+<pre><code>Access-Control-Allow-Credentials:true //这里值不能为*必须明确指定域名
+</code></pre><p>这时，我们在发送请求的时候才会捎带上cookie的信息，而且这里的cookie也遵循同源策略，只有服务器域名下的cookie信息才会被捎带。</p>
+<p>##二、HTTP请求和响应</p>
+<p>因为Ajax就是用来与服务器通信的，那么这里它就离不开HTTP，也就会去请求然后获得响应。这里稍微详细的了解下请求头与响应头相关的信息。</p>
+<p>一个 HTTP请求由4部分组成：</p>
+<p>　　– HTTP请求方法或“动作”；</p>
+<p>　　– 正在请求的URL；</p>
+<p>　　– 一个可选的请求头集合，其中可能包括身份验证信息；</p>
+<p>　　– 一个可选的请求主体 ；</p>
+<p>服务器返回的HTTP响应包含3部分：</p>
+<p>　　– 一个数字和文字组成的状态码，用来显示请求的成功和失败</p>
+<p>　　– 一个响应头集合</p>
+<p>　　– 响应主体</p>
+<p>我在网上找了一个参数尽可能多的请求，下面是它的请求头信息和响应头信息：</p>
+<p><img src="/img/21.png" alt="图2.1"></p>
+<p>2.1 Request Headers中的一些参数：</p>
+<ol>
+<li>Accept:text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8</li>
+</ol>
+<p>含义：浏览器支持的 MIME 类型分别是 text/html、application/xhtml+xml、application/xml 和 <em>/</em>，优先顺序是它们从左到右的排列顺序。</p>
+<p>详解：</p>
+<p>　　– Accept表示浏览器支持的 MIME 类型；</p>
+<p>　　– MIME的英文全称是 Multipurpose Internet Mail Extensions（多功能 Internet 邮件扩充服务），它是一种多用途网际邮件扩充协议，在1992年最早应用于电子邮件系统，但后来也应用到浏览器;</p>
+<p>　　– text/html,application/xhtml+xml,application/xml 都是 MIME 类型，也可以称为媒体类型和内容类型，斜杠前面的是 type（类型），斜杠后面的是 subtype（子类型）,type 指定大的范围，subtype 是 type 中范围更明确的类型，即大类中的小类;</p>
+<p>　　– Text用于标准化地表示的文本信息，文本消息可以是多种字符集和或者多种格式的;</p>
+<p>　　– text/html表示 html 文档;</p>
+<p>　　– Application：用于传输应用程序数据或者二进制数据;</p>
+<p>　　– application/xhtml+xml表示 xhtml 文档;</p>
+<p>　　– application/xml表示 xml 文档;</p>
+<p>　　– q是权重系数，范围 0 =&lt; q &lt;= 1，q 值越大，请求越倾向于获得其“;”之前的类型表示的内容，若没有指定 q 值，则默认为1，若被赋值为0，则用于提醒服务器哪些是浏览器不接受的内容类型。</p>
+<p>2.Accept-Encoding: gzip, deflate</p>
+<p>含义：标示浏览器支持的压缩编码是gzip和deflate和sdcn。</p>
+<p>3.Accept-Language:zh-CN,zh;q=0.8</p>
+<p>含义：浏览器支持的语言，zh-CN是简体中文，zh是中文。</p>
+<p>4.Cache-Control:max-age=0(请求头中的Cache-Control)</p>
+<p>含义：Cache-Control头是用来在请求/响应这个过程中控制缓存的。</p>
+<p>他可以有的参数:</p>
+<p>　　max-age=0单位是秒，它表示客户端可接受的响应等待时间；</p>
+<p>　　max-stale表示客户端愿意接受一个响应，即使它已经超过了它新鲜的寿命（可以有值也可以没有值）；</p>
+<p>　　min-fresh=10他表示客户端愿意接受一个响应的保鲜寿命不小于目前的年龄加上指定的时间在几秒钟内；</p>
+<p>　　no-cache表示不接受缓存的响应；</p>
+<p>　　no-store表示缓存不可以保存请求和响应的任何部分；</p>
+<p>　　only-if-cache:它表示客户端只想要获得一个被缓存起来了的响应。</p>
+<p>5.Host</p>
+<p>含义：客户端指定自己想访问的WEB服务器的域名/IP 地址和端口号.</p>
+<p>6.Content-Type:application/x-www-form-urlencoded</p>
+<p>含义：请求头的Content-Type定义传递到服务器的数据类型，数据由服务器端处理！Content-Type后面的值就是一个MIME类型。application/x-www-form-urlencoded实际上就是指表单提交的数据，如果上传附件，就会是multipart/form-data。响应头的Content- Type定义返回到客户端的数据类型。</p>
+<p>其他一些常见易理解的参数，这里就不列举啦。</p>
+<p>2.2 Response Headers中的一些参数：</p>
+<p>1.Accept-Ranges:bytes</p>
+<p>含义：WEB服务器表明自己是否接受获取其某个实体的一部分（比如文件的一部分）的请求。bytes：表示接受，none：表示不接受。</p>
+<p>2.Cache-Control：Public</p>
+<p>　　   public(可以用 Cached 内容回应任何用户)<br>         private（只能用缓存内容回应先前请求该内容的那个用户）<br>         no-cache（可以缓存，但是只有在跟WEB服务器验证了其有效后，才能返回给客户端）<br>         max-age：（本响应包含的对象的过期时间）<br>         ALL:  no-store（不允许缓存）</p>
+<p>3.ETag</p>
+<p>含义：它是一个对象的标志值，用于确认请求的文件是否被更改。比如一个 html 文件，如果被修改了，其 Etag 也会别修改，所以，ETag 的作用跟 Last-Modified 的作用差不多，主要供 WEB 服务器判断一个对象是否改变了。比如前一次请求某个 html 文件时，获得了其 ETag，当这次又请求这个文件时，浏览器就会把先前获得的 ETag 值发送给  WEB 服务器，然后 WEB 服务器会把这个 ETag 跟该文件的当前 ETag 进行对比，然后就知道这个文件有没有改变了。</p>
+<p>4.Expires</p>
+<p>含义：WEB服务器表明该实体将在什么时候过期，对于过期了的对象，只有在跟WEB服务器验证了其有效性后，才能用来响应客户请求</p>
+<p>5.Last-Modified</p>
+<p>含义：WEB 服务器认为对象的最后修改时间，比如文件的最后修改时间，动态页面的最后产生时间等等</p>
+<p><a href="http://yolcy.blog.163.com/blog/static/105307937201022471913971/" target="_blank" rel="external">更为详细些的头部参数的说明</a></p>
+<p>2.3 GET请求和POST请求的区别</p>
+<p>也许你也曾想过GET和POST方法的区别，这里整理一下我了解到的：</p>
+<p>GET：</p>
+<pre><code>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+GET方法用于向指定的资源或服务器请求数据
+--------------------------------------------------------------------------------
+1.GET请求可以被浏览器缓存
+2.GET请求保留在浏览器的历史记录中
+3.GET请求可以被收藏为书签
+4.GET请求不应该在处理敏感数据时使用，它的安全性有待商榷
+5.GET请求有长度的限制
+6.GET请求应当只用于取回数据
+7.GET请求从来没有主体，需要的查询参数要编码放在url后面作为查询字符串
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+</code></pre><p>POST：</p>
+<pre><code>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+POST方法向指定的资源或服务器提交要被处理的数据
+------------------------------------------------------------------------------------
+1.POST请求不会被缓存
+2.POST请求不会保留在浏览器的历史记录中
+3.POST请求不能被收藏为书签
+4.POST请求对数据的长度没有要求
+5.POST请求通常有主体，用来提交要被处理的数据，xhr.send(&apos;数据&apos;)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+</code></pre><p>如果想更加详细的学习HTTP协议相关的内容可以查看RFC：<a href="https://tools.ietf.org/html/rfc7230#section-4.3.3" target="_blank" rel="external">RFC7230</a> <a href="https://tools.ietf.org/html/rfc7231" target="_blank" rel="external">RFC7231</a> <a href="https://tools.ietf.org/html/rfc7231" target="_blank" rel="external">RFC7232</a> 等等</p>
+<p>##三.JQuery中的Ajax</p>
+<p>我们一般实际应用的时候大部分都是jQuery或Zepto中的Ajax了。</p>
+<p>我给自己列了些细节或要点，有时很有用，有时会避免错误：</p>
+<p>1.$.ajax()会返回创建的XMLHttpRequest对象，然后我们可以就可以应用xhr对象的一些属性或方法了，但大多数情况下我们不会用到，像这样：</p>
+<pre><code>htmlobj=$.ajax({url:&quot;/jquery/test1.txt&quot;,async:false});
+  $(&quot;#myDiv&quot;).html(htmlobj.responseText);　
+</code></pre><p>2.cache：false</p>
+<p>　　有时候我们发送了个请求，返回的数据也得到了，但是后端同学在相同的接口中准备返回给你跟之前不同的数据比如说多一个字段，或少一个字段时。你肯定期待拿到新的数据了，但如果的你请求是get请求的话那么浏览器就会缓存你的Ajax请求，post请求一般不存在这个问题，于是你就纳闷了为什么数据没有变化。于是我们可以设置cache：false，使每次都发送请求而不是取缓存中的。</p>
+<p>　　3.context:document.body</p>
+<p>　　context参数可以指定回调函数的上下文，使回调函数中的$(this)指向context参数对应的DOM元素。</p>
+<p>　　4.dataType：’xml’/‘jsonp’/‘html’/‘script’/‘json’/‘text’</p>
+<p>　　这是最简单务实的一个参数了，用于定于预期服务器返回的数据类型。设置值为‘script’时，将返回纯文本js代码，并且不会自动缓存结果，除非显示的设置cache为true，并且所有的POST请求都会被转为GET请求。设置值为‘jsonp’时，如果我们自己没有显示的定义回调函数的名字，jQuery会自动的帮我们添加，以正确的执行回调函数。这样我们回调函数的参数data就是json类型的数据了。</p>
+<p>##四.待扩展和实战的学习要点</p>
+<p>进一步准备学习和实战练习的：</p>
+<p>　　利用XMLHttpRequest对象特别是扩展了的二级XMLHttpRequest对象，我们还可以做很多事情，比如说：①Ajax上传文件（可以使用FormData接口或File API）②获得progress元素的上传进度（xhr对象的upload属性的progress事件）③使用abort()方法终止请求和实现超时 等等。</p>
+<p>　　HTTP用来在客户端和服务器之间建立连接进行交流，那么利用HTTP请求头信息和响应头信息其实也能做很多事情，比如：①正确的配置信息头实现请求的缓存，加快响应用户的速度②控制安全的请求同服务器交互等等。</p>
+<p>　　Jquery源码中ajax的实现方式，思想学习以及与Zepto中Ajax实现的不同。</p>
+<p>参考资料&amp;相关阅读：</p>
+<p><a href="http://javascript.ruanyifeng.com/bom/ajax.html" target="_blank" rel="external">Ajax-Javascript标准参考教程</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest" target="_blank" rel="external">MDN UsingXMLHttpRequest</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Using_FormData_Objects" target="_blank" rel="external">使用FormData对象</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API" target="_blank" rel="external">Web API接口查询表</a><br><a href="http://www.html5rocks.com/en/tutorials/cors/" target="_blank" rel="external">Using CORS</a>　<br><a href="http://www.zhihu.com/question/22073045" target="_blank" rel="external">http协议请求响应头中参数的疑问</a><br><a href="http://www.cnblogs.com/aaronjs/p/3279314.html" target="_blank" rel="external">JQuery源码分析</a><br><a href="http://www.css88.com/doc/zeptojs_api/#$.ajax" target="_blank" rel="external">Zeptojs Ajax API</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;再回顾Ajax相关的内容，再次梳理学习还是很有必要的，尤其是实际的开发中，ajax更是必不可少，仔细学习以便避免不必要的错误。&lt;/p&gt;
+&lt;p&gt;##一.使用XMLHttpRequest&lt;/p&gt;
+&lt;p&gt;从Ajax的工作原理来看，它是一种可以使用脚本操纵HTTP和Web服务器进行数据交换并且不会导致页面重载的技术。Ajax的核心就是XMLHttpRequest对象。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var xhr = new XMLHttpRequest();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样就实例化了一个XMLHttpRequest对象，每个xhr对象都表示一个独立的请求响应对，通过这个对象的属性和方法我们可以查看请求的细节和得到响应的数据。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术文" scheme="http://zhangmengxue.com/tags/%E6%8A%80%E6%9C%AF%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于对象的一些判断</title>
+    <link href="http://zhangmengxue.com/2015/01/22/aboutObject/"/>
+    <id>http://zhangmengxue.com/2015/01/22/aboutObject/</id>
+    <published>2015-01-22T15:23:32.000Z</published>
+    <updated>2016-11-23T03:30:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？</p>
+<h2 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h2><p>这个肯定会：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(data != <span class="string">''</span>)&#123;</div><div class="line">	dosomething</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(obj != <span class="literal">null</span>)&#123;</div><div class="line">	dosomething</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那在好多情况下就又会进坑了…<br>为什么呢？去这儿看看：<a href="http://barretlee.github.io/ST/ES5.1/#sec-11.9.3" target="_blank" rel="external">关于x==y的比较行为</a></p>
+<a id="more"></a> 
+<h2 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h2><p>$.isPlainObject()</p>
+<p>jQ中的这个方法在对象是通过{}或new Object()创建的的时候会返回true。Zepto中<br>也有这个方法，大体相同。</p>
+<p>源码是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">isPlainObject: <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>) </span>&#123;</div><div class="line">	<span class="comment">// Not plain objects:</span></div><div class="line">	<span class="comment">// - Any object or value whose internal [[Class]] property is not "[object Object]"</span></div><div class="line">	<span class="comment">// - DOM nodes</span></div><div class="line">	<span class="comment">// - window</span></div><div class="line">	<span class="keyword">if</span> ( jQuery.type( obj ) !== <span class="string">"object"</span> || obj.nodeType || jQuery.isWindow( obj ) ) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> ( obj.constructor &amp;&amp;</div><div class="line">			!hasOwn.call( obj.constructor.prototype, <span class="string">"isPrototypeOf"</span> ) ) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// If the function hasn't returned already, we're confident that</span></div><div class="line">	<span class="comment">// |obj| is a plain object, created by &#123;&#125; or constructed with new Object</span></div><div class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以试试了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$.isPlainObject(&#123;&#125;)          <span class="comment">// =&gt; true</span></div><div class="line">$.isPlainObject(&#123;<span class="string">'a'</span>:<span class="string">'1'</span>&#125;)         <span class="comment">// =&gt; true</span></div><div class="line">$.isPlainObject(<span class="keyword">new</span> <span class="built_in">Object</span>())  <span class="comment">// =&gt; true</span></div><div class="line">$.isPlainObject(<span class="keyword">new</span> <span class="built_in">Date</span>())   <span class="comment">// =&gt; false</span></div><div class="line">$.isPlainObject(<span class="built_in">window</span>)      <span class="comment">// =&gt; false</span></div></pre></td></tr></table></figure>
+<h2 id="第三种情况"><a href="#第三种情况" class="headerlink" title="第三种情况"></a>第三种情况</h2><p>判断一个对象是否为空对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">isEmptyObject: <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> name;</div><div class="line">	<span class="keyword">for</span> ( name <span class="keyword">in</span> obj ) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不过有时候它也挺坑爹的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.isEmptyObject(&#123;&#125;)   <span class="comment">// =&gt; true</span></div><div class="line">$.isEmptyObject(<span class="string">''</span>)   <span class="comment">// =&gt; true</span></div><div class="line">$.isEmptyObject(<span class="literal">null</span>)   <span class="comment">// =&gt; true</span></div><div class="line">$.isEmptyObject(<span class="number">0</span>)   <span class="comment">// =&gt; true</span></div><div class="line">$.isEmptyObject(<span class="literal">NaN</span>)   <span class="comment">// =&gt; true</span></div><div class="line">$.isEmptyObject(<span class="literal">undefined</span>)   <span class="comment">// =&gt; true</span></div><div class="line">$.isEmptyObject(&#123;<span class="string">'a'</span>:<span class="string">'1'</span>&#125;)   <span class="comment">// =&gt; false</span></div><div class="line">$.isEmptyObject(<span class="string">'str'</span>)   <span class="comment">// =&gt; false</span></div></pre></td></tr></table></figure>
+<p>其实，我们可以巧妙的应用toString()方法来判断数值类型，不管是基本的值类型还是对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="number">2</span>) <span class="comment">// "[object Number]"</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="string">''</span>) <span class="comment">// "[object String]"</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>) <span class="comment">// "[object Boolean]"</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">undefined</span>) <span class="comment">// "[object Undefined]"</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">null</span>) <span class="comment">// "[object Null]"</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">Math</span>) <span class="comment">// "[object Math]"</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;) <span class="comment">// "[object Object]"</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.call([]) <span class="comment">// "[object Array]"</span></div></pre></td></tr></table></figure>
+<p>稍微整理一下就可以像我们想要得到的那样来判断数值类型了，特殊的null和undefined也不会落下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> type = <span class="function"><span class="keyword">function</span> (<span class="params">o</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> s = <span class="built_in">Object</span>.prototype.toString.call(o);</div><div class="line">        <span class="keyword">return</span> s.match(<span class="regexp">/\[object (.*?)\]/</span>)[<span class="number">1</span>].toLowerCase();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">type(&#123;&#125;); <span class="comment">// "object"</span></div><div class="line">type([]); <span class="comment">// "array"</span></div><div class="line">type(<span class="number">5</span>); <span class="comment">// "number"</span></div><div class="line">type(<span class="literal">null</span>); <span class="comment">// "null"</span></div><div class="line">type(); <span class="comment">// "undefined"</span></div><div class="line">type(<span class="regexp">/abcd/</span>); <span class="comment">// "regex"</span></div><div class="line">type(<span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">// "date"</span></div></pre></td></tr></table></figure>
+<p>具体情况还是要具体分析，头脑清晰想清楚再判断好，再去做接下来的事情。少走些弯路。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？&lt;/p&gt;
+&lt;h2 id=&quot;第一种情况&quot;&gt;&lt;a href=&quot;#第一种情况&quot; class=&quot;headerlink&quot; title=&quot;第一种情况&quot;&gt;&lt;/a&gt;第一种情况&lt;/h2&gt;&lt;p&gt;这个肯定会：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(data != &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	dosomething&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(obj != &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	dosomething&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;那在好多情况下就又会进坑了…&lt;br&gt;为什么呢？去这儿看看：&lt;a href=&quot;http://barretlee.github.io/ST/ES5.1/#sec-11.9.3&quot;&gt;关于x==y的比较行为&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术文" scheme="http://zhangmengxue.com/tags/%E6%8A%80%E6%9C%AF%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>跨终端开发必备概念汇总</title>
+    <link href="http://zhangmengxue.com/2015/01/20/mobile/"/>
+    <id>http://zhangmengxue.com/2015/01/20/mobile/</id>
+    <published>2015-01-20T15:03:17.000Z</published>
+    <updated>2016-11-23T03:35:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>移动大潮已然到来，跟上节奏是必须。在进行更进一步深入学习和研究各种相关问题之前，有些概念是必须研究透彻的，这将会是以后开发和适配的基石。</p>
+<h2 id="文章导读"><a href="#文章导读" class="headerlink" title="文章导读"></a>文章导读</h2><ul>
+<li>一.单位英寸像素数（Pixel Per Inch，PPI）</li>
+<li>二.设备像素比率（Device Pixel Ratio，DPR）</li>
+<li>三.设备像素/css像素</li>
+<li>四.各路单位扫盲＋分析</li>
+<li>五.viewport相关</li>
+<li>六.width和device－width</li>
+</ul>
+<a id="more"></a> 
+<h2 id="一-单位英寸像素数（Pixel-Per-Inch，PPI）"><a href="#一-单位英寸像素数（Pixel-Per-Inch，PPI）" class="headerlink" title="一.单位英寸像素数（Pixel Per Inch，PPI）"></a>一.单位英寸像素数（Pixel Per Inch，PPI）</h2><p>PPI是一个度量单位，是像素密度单位，它表示了现实世界一英寸内的像素数，因此它决定了屏幕的显示质量。</p>
+<p>像我们常说的1024*768其实是指的屏幕分辨率，对应在现实中的分辨率就用PPI作为度量单位，可以举个例子来说明：</p>
+<p>　　｜－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－｜</p>
+<p>　　｜如果显示器的屏幕大小是14英寸（对角线的长度）纵横比是3:4－－&gt;</p>
+<p>　　｜那么水平方向上的长度就为：14*（4/5）＝11.2 英寸  （1英寸＝0.762寸）</p>
+<p>　　｜从而我们常说的1024对应现实世界的分辨率就为：1024/11.2 ＝ 91.4PPI</p>
+<p>　　｜－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－｜</p>
+<p>所以通常要分辨清楚，像我们说的1024<em>768和iPhone5s的640</em>1136他们不是对应PPI这个单位的。</p>
+<p>正是因为不相同，存在这样的对应关系，所以在终端上必要的时候就会做PPI的适配，以Retina屏为例子：</p>
+<p>－－&gt;我们不想文字在Retina屏上变小（因为在相同尺寸的屏幕下，Retina屏拥有比非Retina屏更多的物理像素，就是我们现实世界中的像素数，所以相同大小的字在Retina下会变小），所以为了做适配，我们可以采用类似媒体查询的办法来改变字体的大小。</p>
+<p>　　｜－PS－｜：Retina显示屏</p>
+<p>　　　　定义：就是具备足够高像素密度而使到人体肉眼无法分辨其中单独像素点的液晶屏，就像最早的iPhone4的屏幕。它的屏幕分辨率为960×640（每英寸像素数326ppi）。</p>
+<p>　　　　我觉得最大的区别就是：因为我们看到的图像都是通过物理像素呈现的，所以像素越密集图像就越清晰，而所谓的Retina显示屏就是在相同尺寸的屏幕下比非Retina的屏幕具备更多的物理像素。</p>
+<p>##二.设备像素比率（Device Pixel Ratio，DPR）</p>
+<p>定义：</p>
+<p>　　　　devicePixelRatio指的是window.devicePixelRatio, 被所有WebKit浏览器以及Opera所支持，window.devicePixelRatio是设备上物理像素和设备独立像素(device-independent pixels (dips))的比例，即：devicePixelRatio=设备物理像素/设备独立像素。</p>
+<p>　　　　它表示的就是物理像素与逻辑像素（px）的对应关系。</p>
+<p>举个例子：　　　　</p>
+<p>　　　　以iPhone为例，retina下devicePixelRatio=1，非retina下devicePixelRatio=2，这是因为无论是retina还是非retina屏，竖屏下，设备独立像素都是320，而它们的设备物理像素分别为640、320。</p>
+<p>　　这边还有更加详细的相关阅读：<a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/" target="_blank" rel="external">设备像素比devicePixelRatio的简单介绍</a>  <a href="https://www.imququ.com/post/devicepixelratio-and-border-width.html" target="_blank" rel="external">devicePixelRatio＝1.5引发的问题</a></p>
+<p>　　于是也就有了DPR适配的问题，因为存在设备像素比率这个东西，所以当我们遇到那个经典的1px问题（无非就是设计师希望在任何的屏幕上都有一条1物理像素的边），要做的就多了。</p>
+<p>　　<a href="http://www.html-js.com/article/2402" target="_blank" rel="external">手机淘宝的flexible设计与实现</a></p>
+<h2 id="三-设备像素-css像素"><a href="#三-设备像素-css像素" class="headerlink" title="三.设备像素/css像素"></a>三.设备像素/css像素</h2><p>要先说下分辨率（Resolution），它就是指屏幕区域的宽高所占的像素数。分辨率说全了就是设备的分辨率，这两个是一回事。这个分辨率是指每英寸的面积上可产生的像素点，分辨率越高代表可以将画面显示的更精细（有时候获取的显示器分辨率，其实是指桌面设定的分辨率，而不是显示器的物理分辨率。大多数情况下，我们设置的分辨率与物理分辨率一致，显示效果才最佳）。</p>
+<p>其实这里说的分辨率（Resolution）在绝大多数的情况下跟我们题目上的设备像素是一个东西，名字的不同而已。</p>
+<p>　　好，下面就专心说设备像素/css像素。</p>
+<p>　　1.我们姑且认定设备的pixels为正确（标准）的pixels宽度。这些pixels决定了你工作所用的那些设备上正式的分辨率。在大多数情况下，能够从screen.width/height上取出具体值；</p>
+<p>　　2.现代浏览器上的缩放，是基于“伸展”pixels。结果是，html元素上的宽度并没有因为缩放200%而由128pix变成256px，而是真实的pixels的被计算成了双倍。html元素在形式上依然是128CSS的pixels，即便它占用了256设备的pixels；</p>
+<p>　　3.图例：</p>
+<p>　　下列图片将清楚的解释这个概念。如图,有4个1像素，缩放为100%的html元素，CSS的pixels完整的和设备的pixels重叠</p>
+<p><img src="/img/1.png" alt="图1"></p>
+<p>　　当我们缩小浏览器时，CSS的pixels开始收缩，导致1单位的设备的pixels上重叠了多个CSS的pixels，如下图:</p>
+<p><img src="/img/2.png" alt="图2"></p>
+<p>　　同理，放大浏览器时，相反的事情发生了，CSS的pixels开始扩大，导致1单位的CSS的pixels上重叠了多个设备的pixels，如下图：　　　　　</p>
+<p><img src="/img/3.png" alt="图3"></p>
+<p>　　4.总体而言，你只需要关注CSS的pixels，这些pixels指定你的样式被如何渲染，设备的pixels几乎对你毫无用处。但对用户而言却不是这样。用户会缩放页面，直到他能舒服的阅读内容。但是你不需关心这些缩放级别。浏览器会自动的保证你的CSS的pixels会被伸展还是收缩；</p>
+<p>　　5.在缩放级别为100%时，1单位的CSS的pixel是严格相等于1单位的设备pixel。</p>
+<p>　　6.上面有说道，页面的清晰和模糊其实可以通过设备像素和css像素的关系来解释。那么这里也要注意下Retina屏，不然稍不注意，图可能会糊掉。</p>
+<p>　　　　非retina屏下，一个css像素“覆盖”在一个设备物理像素上；<br>　　　　retina屏下，一个css像素“覆盖”在四个设备物理像素上，实质是一个css像素被瓜分成了四份，效果就变糊了。</p>
+<p>　　　　原理就像下面这样：</p>
+<p><img src="/img/4.png" alt="图4"></p>
+<h2 id="四-各路单位扫盲＋分析"><a href="#四-各路单位扫盲＋分析" class="headerlink" title="四.各路单位扫盲＋分析"></a>四.各路单位扫盲＋分析</h2><p>　1.em</p>
+<p>　　　　em是相对单位，参考物是父元素的font-size，同百分比方式的单位相同，具有继承的特点，如果字体大小是16px（浏览器的默认值），那么 1em = 16px。 如果父元素设置了font-size:62.5%，那么相应的1em=10px了。</p>
+<p>　　　　这里有篇文章研究的比较仔细：<a href="http://www.html-js.com/article/2400" target="_blank" rel="external">关于webapp中的文字单位的一些倒腾</a></p>
+<p>　　2.rem</p>
+<p>　　　　rem也是相对单位，不过总是相对于根元素的字体大小，也就是<html>元素。</html></p>
+<p>　　　　现在越来越多的人采用rem在不同的设备间进行布局了，可以通过js动态的改变<html>元素的font-size，或是通过媒体查询来动态改变<html>元素的font-size的大小，来适配不同设备的不同屏幕大小，实现跨终端的目的，而且支持度也越来越好了。</html></html></p>
+<p>　　3.vw和vh</p>
+<p>　　　   vw Viewport宽度， <strong> 1vw </strong> 等于viewport宽度的1%；</p>
+<p>　　　　vh Viewport高度， <strong> 1vh </strong> 等于viewport高的的1%；</p>
+<p>　　4.vmin和vmax</p>
+<p>　　　　vw和vh对应于viewport的width和height，而vmin和vmax分别对应于width、height中的最小值和最大值，例如如果浏览器的宽/高被设置为1000px/600px，那么</p>
+<p>　　　　1vmin = 600 * 1/100;</p>
+<p>　　　　1vmax = 1000 * 1/100</p>
+<p><a href="http://msdn.microsoft.com/en-us/magazine/jj687762.aspx" target="_blank" rel="external">MSDN上有更为详尽的解释</a></p>
+<h2 id="五-viewport相关"><a href="#五-viewport相关" class="headerlink" title="五.viewport相关"></a>五.viewport相关</h2><p>｜－视口viewport（这里且先说pc相关的viewport）－｜</p>
+<p>　　viewport的定义是严格的等于浏览器的窗口，它不是一个HTML的概念，所以我们不能通过css去修改它。</p>
+<p>　　实际上，viewport的功能在于控制网站的最高block容器，那就是<html>元素。也就是说<html>元素为viewport宽度的100%。虽然我们知道document.documentElement实际上就是<html>元素，但是document.documentElement. clientWidth/Height给出的实际是viewport的尺寸，而不是<html>元素，不管<html>元素的尺寸如何改变，都只会得到viewport的尺寸。那我们该如何获取<html>元素的尺寸呢，可以使用document.documentElement.offsetWidth/Height，但还是有bug，IE用这个值标示viewport的尺寸而非<html> 。</html></html></html></html></html></html></html></p>
+<p>｜－viewport（然后放开了的说下我学习和理解到的跨终端相关的viewport）－｜</p>
+<p>1.两种viewport：</p>
+<p>　　　　虚拟的viewport＃visualviewport －－visualviewport是当前显示在屏幕上的部分页面。用户会滚动页面来改变可见部分，或者缩放浏览器来改变visualviewport的尺寸。window.innerWidth/Height返回visualviewport的尺寸。</p>
+<p><img src="/img/5.png" alt="图5"></p>
+<p>　　　　布局的viewport＃layoutviewport－－css布局通常都是按照layoutviewport来定义，而且比visualviewport宽很多。同时<html>元素的宽度也是继承于layoutviewport。那么layoutviewport有多宽呢？每个浏览器都不同。iPhone上的Safari使用980px、Opera 850px，安卓的Webkit核心800px，IE974px。浏览器已经选择好他们的layoutviewport的尺寸，它完整的覆盖了最小缩放模式下的移动浏览器的屏幕。document.documentElement.clientWidth/Height传递layoutviewport的尺寸。</html></p>
+<p><img src="/img/6.png" alt="图6">
+　　</p>
+<p>2.和pc浏览器一样，screen.width/height标示了设备屏幕的尺寸，以设备的pixels度量。如果需要知道当前visualviewport相对于layoutviewport的距离。这就是滚动位移，如同在桌面浏览器一样，使用window.pageX/YOffset存储。和在桌面系统一样,document.documentElement.offsetWidth/Height给出了<html>元素以CSS的pixels度量的尺寸。</html></p>
+<p>　　上面内容只是基本，并不完整，不同浏览器的兼容问题还需要进一步研究，详细阅读请看：<a href="http://www.quirksmode.org/mobile/viewports.html" target="_blank" rel="external">A Table of two viewports－part one</a>       当然第二部分也非常值得一看： <a href="http://www.quirksmode.org/mobile/viewports2.html" target="_blank" rel="external">A Table of two viewports－part two</a>　</p>
+<p>　　quirksmode上的一个非常全的viewport相关的兼容性表，可用于适配时查看：<a href="http://www.quirksmode.org/mobile/tableViewport.html" target="_blank" rel="external">http://www.quirksmode.org/mobile/tableViewport.html</a></p>
+<p>　　其中涉及到的页面元素大小偏移相关我之前也有整理,没那么深入，倒也通俗易懂： 页面元素坐标和偏移相关整理</p>
+<h2 id="六-width和device－width"><a href="#六-width和device－width" class="headerlink" title="六.width和device－width"></a>六.width和device－width</h2><p>我了解到的定义是：</p>
+<p>　　　　+－－width/height使用以CSS的pixels度量的layoutviewport，通俗的说就是页面内容的宽度；</p>
+<p>　　　　+－－device-width/height使用以设备的pixels度量的设备屏幕（device screen）；</p>
+<p>　　　　#－－width/height 反映document. documentElement. clientWidth/Height的值；</p>
+<p>　　　　#－－device-width/height 反映screen.width/height；</p>
+<p>　　　　但上面只是普遍情况，如果稍在ios设备下尝试下，就能发现事实跟上面说的不一样。</p>
+<p>　　　　在某些设备下：screen.width == 设备的物理分辨率 / window.devicePixelRatio。具体情况还需要详细的测试。</p>
+<p>上面也还只是列出了相关问题的基本了解与学习，在这个过程中更加发现，需要深入研究与学习的知识点还是很多的。</p>
+<p>比如说<meta>标签相关，还有1px的问题，都是值得深入学习的。</p>
+<p>后续继续持续学习，逐步完善。
+　</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;移动大潮已然到来，跟上节奏是必须。在进行更进一步深入学习和研究各种相关问题之前，有些概念是必须研究透彻的，这将会是以后开发和适配的基石。&lt;/p&gt;
+&lt;h2 id=&quot;文章导读&quot;&gt;&lt;a href=&quot;#文章导读&quot; class=&quot;headerlink&quot; title=&quot;文章导读&quot;&gt;&lt;/a&gt;文章导读&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;一.单位英寸像素数（Pixel Per Inch，PPI）&lt;/li&gt;
+&lt;li&gt;二.设备像素比率（Device Pixel Ratio，DPR）&lt;/li&gt;
+&lt;li&gt;三.设备像素/css像素&lt;/li&gt;
+&lt;li&gt;四.各路单位扫盲＋分析&lt;/li&gt;
+&lt;li&gt;五.viewport相关&lt;/li&gt;
+&lt;li&gt;六.width和device－width&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="技术文" scheme="http://zhangmengxue.com/tags/%E6%8A%80%E6%9C%AF%E6%96%87/"/>
+    
+  </entry>
+  
+</feed>

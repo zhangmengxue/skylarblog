@@ -20,28 +20,32 @@ picture:
 
 ### fork 代码
 
+```javascript
     # 初始化
     git init
     # 添加源
     git remote add barret https://github.com/barretlee/skylarblog.git
     # 拉取代码，记得要加 barret
     git pull barret
+```
 
 ### 切换分支
 
+```javascript
     # 切换主干代码
     git checkout master
-
+```
 <!-- more --> 
 ## 二、安装 hexo 及相关插件
 
 ### 第一步先安装 hexo：
 
+```javascript
     # (mac/linux)下使用 sudo安装
     npm install -g hexo
     # 初始化一个 hexo 项目
     hexo init
-
+```
 给博客安装 5 个插件：
 
 - hexo-generator-feed
@@ -54,10 +58,11 @@ picture:
 
 ### 安装组件
 
+```javascript
     # 运行插件安装命令
     npm install
     简写： npm i
-
+```
 
 ## 三、文件目录及配置
 
@@ -75,10 +80,12 @@ picture:
 
 配置 _config.yml，在最后找到：
 
+```javascript
     deploy:
       type: github
       repository: https://github.com/barretlee/skylarblog.git
       branch: gh-pages
+```
 
 将 repository 改成你自己的地址，`https://github.com/zhangmengxue/blog.git`
 
@@ -88,8 +95,10 @@ picture:
 
 ### 编译
 
+```javascript
     $ hexo generate
     简写：hexo g
+```
 
 编辑的文档使用的 md 语法，使用 `hexo g` 将 md 文件编译成 html 文件，然后执行 `hexo s`就可以在本地预览了。
 
@@ -97,8 +106,10 @@ picture:
 
 ### 启动本地服务器
 
+```javascript
     $ hexo server
     简写：hexo s
+```
 
 会开启一个端口为 4000 的本地服务器，可以用于本地调试
 
@@ -106,32 +117,38 @@ picture:
 
 ### 直接将代码部署到 Github Pages
 
+```javascript
     $ hexo deploy
     简写： hexo d
-
+```
 更多信息: [Deployment](http://hexo.io/docs/deployment.html)
 
 ### 组合命令
 
+```javascript
     # 编译之后，打开本地服务器
     hexo s -g
     # 编译之后，直接发布到 Github Pages
     hexo d -g
-
+```
 
 ## 五、发表文章
 
 ### 创建一篇新的文章
 
+```javascript
     $ hexo new post-name
     简写：hexo n post-name
+```
 
 这句命令会在 source/_posts 下生成一个叫做 post-name.md 的文件，然后通过 `hexo d -g`，打开本地服务器查看网页内容。
 
 ### 创建一个页面
 
+```javascript
     hexo new page about
     简写：hexo n page about
+```
 
 这条命令就可以生成一个 about 页面。
 
@@ -139,12 +156,13 @@ picture:
 
 ### 把修改保存到自己的 github 上
 
+```javascript
     # 添加自己的仓库源
     git remote add skylar https://github.com/zhangmengxue/blog.git
     # 推上去
     git push skylar master
     ## 这里需要注意的是，不需要管 gh-pages 分支，这个分支已经被 hexo 自动推送了
-
+```
 
 ## 六、其他方面的介绍
 

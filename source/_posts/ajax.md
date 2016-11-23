@@ -19,6 +19,7 @@ tags:
 
 下面举个梨子：
 
+```javascript
 	function getText(url,callback){
         var xhr = new XMLHttpRequest();
         xhr.open('GET',url);
@@ -36,7 +37,7 @@ tags:
        console.log(obj);
      }
 
-
+```
 从中可以看到一些xhr对象的方法和属性：
 
 ---  xhr.setRequestHeader("Content-Type","text/plain");它用来设置请求头的信息，post请求通常会设置前面的Content-Type的请求头，比如说我想跨域发送请求，那你可能就要设置xhr.setRequestHeader("Origin","url")了(要真的跨域还需要在服务器端设置Access-Control-Allow-Origin)。但是并不能设置所有的请求头信息，你可以设置除了下面这些头之外的信息：Accept-Charset,Accept-Encoding,Connection,Content-Length,Cookie,Cookie2,Content-Transfer-Encoding,Date,Expect,Host,Keep-Alive,Referrer,User-Agent,Trailer,Transfer-Encoding,Upgrade,Via.
@@ -85,17 +86,20 @@ tags:
 
 在XHR2中send()方法可以发送很多类型的数据。
 
+```javascript
 	void send();
 	void send(ArrayBuffer data);
 	void send(Blob data); //用来发送二进制数据（这使得通过Ajax上传文件成为了可能）
 	void send(Document data);
 	void send(DOMString data);
 	void send(FormData data); //用于构造表单数据
+```
 
 通过Ajax提交表单数据还是很有意义的。传统的做法中，点击页面中表单的submit按钮，需要跳转到一个空页面，然后再对原页面的数据进行处理。ajax则不用，可以直接在原页面进行提交后的处理。
 
 发送FormData类型的数据为我们提供了便利：
 
+```javascript
 	var formData = new FormData();
 
 	formData.append('username','mengxue');//第一个参数为<input>标签的name属性
@@ -106,6 +110,7 @@ tags:
 	formData.append('birthday', '930920');
 
 	xhr.send(formData);
+```
 
 1.3  再看CORS
 
@@ -129,8 +134,10 @@ CORS（跨域资源共享），它的出现就是为了解救Ajax受限于同源
 
 OPTIONS就是告诉我们这是一个“预检”请求。里面有关键的Origin头信息。
 
+```javascript
 	Access-Control-Request-Method: POST
 	Access-Control-Request-Headers: X-PINGOTHER
+```
 
 这两个头信息就告诉服务器，如果我发送请求的话将会是POST请求，我还可能自己定义个X-PINGOTHER的请求头信息。
 

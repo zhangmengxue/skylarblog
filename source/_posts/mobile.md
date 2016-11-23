@@ -7,12 +7,13 @@ tags:
 移动大潮已然到来，跟上节奏是必须。在进行更进一步深入学习和研究各种相关问题之前，有些概念是必须研究透彻的，这将会是以后开发和适配的基石。
 
 ## 文章导读
-	一.单位英寸像素数（Pixel Per Inch，PPI）
-	二.设备像素比率（Device Pixel Ratio，DPR）
-	三.设备像素/css像素
-	四.各路单位扫盲＋分析
-	五.viewport相关
-	六.width和device－width
+
+- 一.单位英寸像素数（Pixel Per Inch，PPI）
+- 二.设备像素比率（Device Pixel Ratio，DPR）
+- 三.设备像素/css像素
+- 四.各路单位扫盲＋分析
+- 五.viewport相关
+- 六.width和device－width
 
 <!-- more --> 
 ## 一.单位英寸像素数（Pixel Per Inch，PPI）

@@ -7,34 +7,30 @@ tags:
 Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。
 
 文章导读
+	1.必备技能
+	2.用于画图的函数
+	3.图像的处理
 
-　　1.必备技能
-
-　　2.用于画图的函数
-
-　　　　例子：-会话气泡- -心形- -钟表- -星球里的星星-  -调色板- -鼠标绘图-  -旋转的小方块-
-
-　　3.图像的处理
-
-　　　　例子：
-
-　　　　　　-图像的灰度和翻转效果- -拾色器-  -放大镜- -图像的高斯模糊-　
 <!-- more --> 
 ### 一、必备技能
 
 这是一个canvas标签：
 
+```javascript
 	<canvas id="c1" width="400" height="400">
 		<span>注意：不支持canvas的浏览器就会显示这个span标签中的内容,并且在css中定义canvas的宽高是等比例缩放的，canvas中行内的宽高样式才是画布的大小</span>
 	</canvas>
+```
 
 控制它的宽高是要写在行内样式中的，像上面那样。这样我们就有了一个canvas元素，然后我们就可以去操作它了：
 
+```javascript
 	var canvas = document.getElementById('Canvas');
 
 	if (canvas.getContext) {
 	    var content = canvas.getContext('2d');
 	}
+```
 
 获取元素的同时，还要获取canvas的2D绘图环境。要是用于3D绘图的话，就要用WebGL了。
 
@@ -48,9 +44,11 @@ Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。
 
 canvas中只支持这一种形状的函数，别的形状就都要自己组合来实现了。
 
+```javascript
 	fillRect(x, y, width, height) //画一个填充的矩形
 	strokeRect(x, y, width, height) //画一个只有边框的矩形
 	clearRect(x, y, width, height) //清除指定的矩形区域
+```
 
 其中的（x,y）是指矩形左上角的坐标。
 
@@ -154,6 +152,7 @@ canvas还提供了两个移动画笔的函数：
 
 canvas中有我们熟悉的几个变换函数：
 
+```javascript
 	translate(x, y) －－平移
 	rotate(angle) －－旋转
 	scale(x, y) －－缩放
@@ -162,17 +161,19 @@ canvas中有我们熟悉的几个变换函数：
 	   a   c   e
 	［ b   d   f ］
 	   0   0   1
-
+```
 简单的小例子：[查看源码](https://github.com/zhangmengxue/Practice/blob/master/canvas/%E6%97%8B%E8%BD%AC%E7%9A%84%E5%B0%8F%E6%96%B9%E5%9D%97.html)   [运行结果](https://rawgit.com/zhangmengxue/Practice/master/canvas/%E6%97%8B%E8%BD%AC%E7%9A%84%E5%B0%8F%E6%96%B9%E5%9D%97.html)
 
 ### 三、图像处理
 
 几个关键函数：
 
+```javascript
 	var myImageData = ctx.createImageData(width, height);
 	ctx.getImageData(left, top, width, height);//读取canvas的内容，返回一个对象且该对象有一个data属性，可以供我们操作页面的像素。
 	ctx.putImageData(myImageData, dx, dy);//将操作好的对象重新绘制在画布中
 	ctx.drawImage(img, 0, 0); // 我们常用的drawImage方法，设置对应的图像对象，以及它在画布上的位置
+```
 
 通过getImageData()方法获取到图像对象，访问它的data属性就可以得到一个像素数组，我们对像素进行处理，使我们可以用canvas处理图像。
 
@@ -180,17 +181,19 @@ canvas中有我们熟悉的几个变换函数：
 
 灰度图（grayscale）就是取红、绿、蓝三个像素值的算术平均值，这实际上将图像转成了黑白形式。假定d[i]是像素数组中一个象素的红色值，则d[i+1]为绿色值，d[i+2]为蓝色值，d[i+3]就是alpha通道值。转成灰度的算法，就是将红、绿、蓝三个值相加后除以3，再将结果写回数组。
 
+```javascript
 	 for(var i=0;i<data.length;i+=4){
          var avg = (data[i]+data[i+1]+data[i+2]) / 3;
          data[i] = avg; //r
          data[i+1] = avg; //g
          data[i+2] = avg; //b
      }
-
+```
 **3.2 复古效果**
 
 复古效果（sepia）则是将红、绿、蓝三个像素，分别取这三个值的某种加权平均值，使得图像有一种古旧的效果。
 
+```javascript
 	for (var i = 0; i < d.length; i += 4) {
 		var r = d[i];
 		var g = d[i + 1];
@@ -199,17 +202,19 @@ canvas中有我们熟悉的几个变换函数：
 		d[i + 1] = (r * 0.349)+(g * 0.686)+(b * 0.168); // green
 		d[i + 2] = (r * 0.272)+(g * 0.534)+(b * 0.131); // blue
 	}
+```
 
 **3.3 反转效果**
 
 反转效果（invert）是指图片呈现一种色彩颠倒的效果。算法为红、绿、蓝通道都取各自的相反值（255-原值）
 
+```javascript
 	for (var i = 0; i < d.length; i += 4) {
         d[i] = 255 - d[i];
         d[i+1] = 255 - d[i + 1];
         d[i+2] = 255 - d[i + 2];
      }
-
+```
 我尝试了一下灰度图的效果和反转图的效果： [查看源码](https://github.com/zhangmengxue/Practice/blob/master/canvas/canvas%E5%9B%BE%E5%83%8F%E6%95%88%E6%9E%9C.html)
 注意，在我们自己本地写demo准备运行查看结果的时候，getImageData()方法可能会有问题，比如说报这个错：Failed to execute 'getImageData' on 'CanvasRenderingContext2D': The canvas has been tainted by cross-origin data
 我们知道这是域和本地运行等相关的问题，这时我们自己本地启用服务器，localhost访问就可以了。
@@ -223,9 +228,11 @@ canvas中有我们熟悉的几个变换函数：
 
 实际上drawImage方法可以有多个参数，提供更加丰富的功能：
 
+```javascript
 	1  ctx.drawImage(image, dx, dy);
 	2  ctx.drawImage(image, dx, dy, dWidth, dHeight);
 	3  ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+```
 
 各个参数就像下面的示意图这样：
 
@@ -237,10 +244,12 @@ canvas中有我们熟悉的几个变换函数：
 
 其实，css中有一个兼容性不那么好的filter属性，可以简单的实现图像模糊的效果：
 
+```javascript
 	 -webkit-filter: blur(20px); /* Chrome, Opera */
 	    -moz-filter: blur(20px);
 	     -ms-filter: blur(20px);
 	         filter: blur(20px);
+```
 
 但是使用canvas可以实现真正意义上的高斯模糊（就是算法那种balabala的）。
 这里有一个实现的很好的高斯模糊的js：[StackBlur](http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html)

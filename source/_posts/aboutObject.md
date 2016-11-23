@@ -10,14 +10,19 @@ tags:
 
 这个肯定会：
 
+```javascript
 	if(data != ''){
 		dosomething
 	}
+```
+
 但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：
 
+```javascript
 	if(obj != null){
 		dosomething
 	}
+```
 那在好多情况下就又会进坑了...
 为什么呢？去这儿看看：[关于x==y的比较行为](http://barretlee.github.io/ST/ES5.1/#sec-11.9.3)
 
@@ -31,6 +36,7 @@ jQ中的这个方法在对象是通过{}或new Object()创建的的时候会返�
 
 源码是这样的：
 
+```javascript
 	isPlainObject: function( obj ) {
 		// Not plain objects:
 		// - Any object or value whose internal [[Class]] property is not "[object Object]"
@@ -50,18 +56,23 @@ jQ中的这个方法在对象是通过{}或new Object()创建的的时候会返�
 		return true;
 	}
 
+```
+
 可以试试了：
 
+```javascript
 	$.isPlainObject({})          // => true
 	$.isPlainObject({'a':'1'})         // => true
 	$.isPlainObject(new Object())  // => true
 	$.isPlainObject(new Date())   // => false
 	$.isPlainObject(window)      // => false
+```
 
 ## 第三种情况
 
 判断一个对象是否为空对象：
 
+```javascript
 	isEmptyObject: function( obj ) {
 		var name;
 		for ( name in obj ) {
@@ -69,9 +80,11 @@ jQ中的这个方法在对象是通过{}或new Object()创建的的时候会返�
 		}
 		return true;
 	}
+```
 
 不过有时候它也挺坑爹的：
 
+```javascript
 	$.isEmptyObject({})   // => true
 	$.isEmptyObject('')   // => true
 	$.isEmptyObject(null)   // => true
@@ -80,9 +93,11 @@ jQ中的这个方法在对象是通过{}或new Object()创建的的时候会返�
 	$.isEmptyObject(undefined)   // => true
 	$.isEmptyObject({'a':'1'})   // => false
 	$.isEmptyObject('str')   // => false
+```
 
 其实，我们可以巧妙的应用toString()方法来判断数值类型，不管是基本的值类型还是对象：
 
+```javascript
 	Object.prototype.toString.call(2) // "[object Number]"
 	Object.prototype.toString.call('') // "[object String]"
 	Object.prototype.toString.call(true) // "[object Boolean]"
@@ -91,9 +106,11 @@ jQ中的这个方法在对象是通过{}或new Object()创建的的时候会返�
 	Object.prototype.toString.call(Math) // "[object Math]"
 	Object.prototype.toString.call({}) // "[object Object]"
 	Object.prototype.toString.call([]) // "[object Array]"
+```
 
 稍微整理一下就可以像我们想要得到的那样来判断数值类型了，特殊的null和undefined也不会落下：
 
+```javascript
 	var type = function (o){
 	    var s = Object.prototype.toString.call(o);
 	        return s.match(/\[object (.*?)\]/)[1].toLowerCase();
@@ -107,5 +124,5 @@ jQ中的这个方法在对象是通过{}或new Object()创建的的时候会返�
 	type(/abcd/); // "regex"
 	type(new Date()); // "date"
 
-
+```
 具体情况还是要具体分析，头脑清晰想清楚再判断好，再去做接下来的事情。少走些弯路。

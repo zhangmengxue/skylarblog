@@ -5,8 +5,9 @@ picture:
 - /imgaes/author.jpg
 ---
 
-博客使用 [Hexo](http://hexo.io/) 搭建的，他相关的文档介绍在这里 [DOC](http://hexo.io/docs/)。
+博客使用 [Hexo](http://hexo.io/) 搭建的，他相关的文档介绍在这里 [DOC](http://hexo.io/docs/)。这里备注自己博客的开发方式和提交部署方式。同时更新一些配置方法。
 
+<!-- more --> 
 ## 一、下载代码
 
 现在自己的 github 下新建一个叫做 blog 的仓库。然后到本地找个目录：
@@ -35,7 +36,7 @@ picture:
     # 切换主干代码
     git checkout master
 ```
-<!-- more --> 
+
 ## 二、安装 hexo 及相关插件
 
 ### 第一步先安装 hexo：

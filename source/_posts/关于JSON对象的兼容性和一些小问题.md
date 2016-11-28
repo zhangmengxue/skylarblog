@@ -3,12 +3,14 @@ date: 2015-03-16 21:52:25
 tags: 技术文
 ---
 
+JSON对象在我们的数据请求中使用的很广泛。准确的了解一些JSON对象的方法和兼容性问题，可以在我们实现数据交互的时候事半功倍。
+<!-- more --> 
+
 ### 一、JSON对象的一些方法
 
 + JSON.parse()解析JSON字符串返回解析后的JSON对象;
 + JSON.stringify()返回指定JSON对象的字符串形式;
 
-<!-- more --> 
 ### 二、JSON对象的兼容性问题
 
 IE8+才会支持JSON对象。我们可以通过代码自己模拟原生的JSON对象：[模拟原生JSON对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON)

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhangmengxue.com/"/>
-  <updated>2016-11-24T12:48:37.000Z</updated>
+  <updated>2016-11-27T09:43:04.000Z</updated>
   <id>http://zhangmengxue.com/</id>
   
   <author>
@@ -14,32 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>hexo 相关配置</title>
-    <link href="http://zhangmengxue.com/2016/11/24/hexo-%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/"/>
-    <id>http://zhangmengxue.com/2016/11/24/hexo-相关配置/</id>
-    <published>2016-11-24T12:42:47.000Z</published>
-    <updated>2016-11-24T12:48:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>hexo 相关配置简洁</p>
-
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;hexo 相关配置简洁&lt;/p&gt;
-
-
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://zhangmengxue.com/categories/hexo/"/>
-    
-    
-      <category term="blog" scheme="http://zhangmengxue.com/tags/blog/"/>
-    
-  </entry>
   
   <entry>
     <title>关于博客主题以及HEXO的使用</title>

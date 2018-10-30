@@ -26,6 +26,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -40,7 +66,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="skylar❤艺璇" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="skylar艺璇" type="application/atom+xml" />
 
 
 
@@ -52,22 +78,19 @@
 
 
 
-<meta name="description" content="Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。
-文章导读    1.必备技能    2.用于画图的函数    3.图像的处理">
+<meta name="description" content="Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。使用canvas我们可以实现更加复杂的图像效果。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="相识HTML5 canvas">
 <meta property="og:url" content="http://zhangmengxue.com/2015/02/25/canvas/index.html">
-<meta property="og:site_name" content="skylar❤艺璇">
-<meta property="og:description" content="Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。
-文章导读    1.必备技能    2.用于画图的函数    3.图像的处理">
+<meta property="og:site_name" content="skylar艺璇">
+<meta property="og:description" content="Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。使用canvas我们可以实现更加复杂的图像效果。">
 <meta property="og:image" content="http://zhangmengxue.com/img/canvas.png">
 <meta property="og:image" content="http://zhangmengxue.com/img/canvas2.png">
 <meta property="og:image" content="http://zhangmengxue.com/img/canvas3.png">
-<meta property="og:updated_time" content="2016-11-23T03:33:00.000Z">
+<meta property="og:updated_time" content="2016-11-27T09:42:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相识HTML5 canvas">
-<meta name="twitter:description" content="Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。
-文章导读    1.必备技能    2.用于画图的函数    3.图像的处理">
+<meta name="twitter:description" content="Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。使用canvas我们可以实现更加复杂的图像效果。">
 <meta name="twitter:image" content="http://zhangmengxue.com/img/canvas.png">
 
 
@@ -102,7 +125,7 @@
 
 
 
-  <title> 相识HTML5 canvas | skylar❤艺璇 </title>
+  <title> 相识HTML5 canvas | skylar艺璇 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -128,13 +151,14 @@
     <div class="plant-wrap2"></div>
     <div class="plant-wrap3"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <span class="ac-icon-love"></span>
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">skylar❤艺璇</span>
+      <span class="site-title">skylar艺璇</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -243,9 +267,9 @@
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="skylar❤艺璇">
+    <meta itemprop="name" content="skylar艺璇">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="skylar❤艺璇" src="">
+      <img style="display:none;" itemprop="url image" alt="skylar艺璇" src="">
     </span>
   </span>
 
@@ -323,8 +347,7 @@
       
 
       
-        <p>Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。</p>
-<p>文章导读<br>    1.必备技能<br>    2.用于画图的函数<br>    3.图像的处理</p>
+        <p>Canvas是HTML的API，我们可以用它在网页中实时的来生成图像。使用canvas我们可以实现更加复杂的图像效果。</p>
 <a id="more"></a> 
 <h3 id="一、必备技能"><a href="#一、必备技能" class="headerlink" title="一、必备技能"></a>一、必备技能</h3><p>这是一个canvas标签：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=<span class="string">"c1"</span> width=<span class="string">"400"</span> height=<span class="string">"400"</span>&gt;</div><div class="line">	&lt;span&gt;注意：不支持canvas的浏览器就会显示这个span标签中的内容,并且在css中定义canvas的宽高是等比例缩放的，canvas中行内的宽高样式才是画布的大小&lt;/span&gt;</div><div class="line">&lt;<span class="regexp">/canvas&gt;</span></div></pre></td></tr></table></figure>
@@ -544,7 +567,7 @@ ctx.shadowColor = &quot;rgba(0,0,0,0.5)&quot;; // 设置阴影颜色
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -676,25 +699,12 @@ ctx.shadowColor = &quot;rgba(0,0,0,0.5)&quot;; // 设置阴影颜色
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">skylar艺璇</span>
 </div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
-
 
         
 
@@ -812,7 +822,6 @@ ctx.shadowColor = &quot;rgba(0,0,0,0.5)&quot;; // 设置阴影颜色
   
 
   
-
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
   <script>AV.initialize("Qw9Ua0IDARc8HyQPQt58bITR-gzGzoHsz", "1lMbySdCR93QWvkRIdomqn6a");</script>
@@ -873,6 +882,7 @@ ctx.shadowColor = &quot;rgba(0,0,0,0.5)&quot;; // 设置阴影颜色
             counter.increment("time");
             counter.save(null, {
               success: function(counter) {
+                console.log(counter);
                 var $element = $(document.getElementById(url));
                 $element.find('.leancloud-visitors-count').text(counter.get('time'));
               },
@@ -924,76 +934,5 @@ ctx.shadowColor = &quot;rgba(0,0,0,0.5)&quot;; // 设置阴影颜色
 
   
 
-  <script type="text/javascript">
-    function randomIntBetween(a, b) {
-      return Math.floor(Math.random()*(b-a+1)+a);
-  }
-
-  function generateRandomSparklingFrames(steps, minOpacity, maxOpacity)
-  {
-      var opacity = [],
-          percent = [];
-      for(i=0; i < steps; i++) {
-          do {
-              opacity[i] = Math.random().toFixed(2);
-          } while (opacity[i] < minOpacity || opacity[i] > maxOpacity);
-          percent[i] = randomIntBetween(1,99);
-      }
-      percent.sort();
-
-      rule = "0% { opacity: " + opacity[0] + "} ";
-      for(i=0; i < steps; i++) {
-          rule += percent[i]+"% { opacity: " + opacity[i] + "} ";
-      }
-      rule += "100% { opacity: " + opacity[0] + "} ";
-
-      return rule;
-  }
-
-  function insertStarRule(name, numSteps, minOpacity, maxOpacity, animationTimeMin, animationTimeMax) {
-      CSS = document.styleSheets[0]; // take the default style sheet
-
-      if (CSS.insertRule) {
-          try {
-              CSS.insertRule("@-webkit-keyframes " + name + "{ " + generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity) + "}", CSS.cssRules.length);
-              CSS.insertRule("." + name + " { -webkit-animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite }", CSS.cssRules.length);
-          } catch (e) {}
-          try {
-              CSS.insertRule("@keyframes " + name + "{ " + generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity) + "}", CSS.cssRules.length);
-              CSS.insertRule("." + name + " {animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite }", CSS.cssRules.length);
-          } catch (e) {}
-      }
-
-      if(CSS.addRule) {
-          try {
-              CSS.addRule("@-webkit-keyframes " + name, generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity));
-              CSS.addRule("." + name, "-webkit-animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite");
-          } catch (e) {}
-          try {
-              CSS.addRule("@keyframes " + name, generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity));
-              CSS.addRule("." + name, "animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite");
-          } catch (e) {}
-      }
-  }
-
-  var w = $("#main").width(),
-      h = $("#main").height(),
-      starsCount = 2000;
-
-  for(n = 1; n <= starsCount; n++)
-      insertStarRule("s" + n, 5, .2, .7, 8, 20);
-
-  for(i = 0; i < starsCount; i++)
-  {
-      var size = randomIntBetween(2,8),
-          x = Math.min(randomIntBetween(8,w), w-size-5),
-          y = Math.min(randomIntBetween(8,h), h-size-5),
-          elem = $("<div class='star'></div>");
-
-      elem.css({"top": y, "left": x, "width": size, "height": size});
-      elem.addClass("s"+randomIntBetween(8,starsCount));
-      $("#main").append(elem);
-  }
-  </script>
 </body>
 </html>

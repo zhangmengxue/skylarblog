@@ -26,6 +26,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -40,7 +66,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="skylar❤艺璇" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="skylar艺璇" type="application/atom+xml" />
 
 
 
@@ -52,22 +78,16 @@
 
 
 
-<meta name="description" content="一、JSON对象的一些方法
-JSON.parse()解析JSON字符串返回解析后的JSON对象;
-JSON.stringify()返回指定JSON对象的字符串形式;">
+<meta name="description" content="JSON对象在我们的数据请求中使用的很广泛。准确的了解一些JSON对象的方法和兼容性问题，可以在我们实现数据交互的时候事半功倍。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于JSON对象的兼容性和一些小问题">
 <meta property="og:url" content="http://zhangmengxue.com/2015/03/16/关于JSON对象的兼容性和一些小问题/index.html">
-<meta property="og:site_name" content="skylar❤艺璇">
-<meta property="og:description" content="一、JSON对象的一些方法
-JSON.parse()解析JSON字符串返回解析后的JSON对象;
-JSON.stringify()返回指定JSON对象的字符串形式;">
-<meta property="og:updated_time" content="2016-11-23T03:27:59.000Z">
+<meta property="og:site_name" content="skylar艺璇">
+<meta property="og:description" content="JSON对象在我们的数据请求中使用的很广泛。准确的了解一些JSON对象的方法和兼容性问题，可以在我们实现数据交互的时候事半功倍。">
+<meta property="og:updated_time" content="2016-11-27T09:44:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于JSON对象的兼容性和一些小问题">
-<meta name="twitter:description" content="一、JSON对象的一些方法
-JSON.parse()解析JSON字符串返回解析后的JSON对象;
-JSON.stringify()返回指定JSON对象的字符串形式;">
+<meta name="twitter:description" content="JSON对象在我们的数据请求中使用的很广泛。准确的了解一些JSON对象的方法和兼容性问题，可以在我们实现数据交互的时候事半功倍。">
 
 
 
@@ -101,7 +121,7 @@ JSON.stringify()返回指定JSON对象的字符串形式;">
 
 
 
-  <title> 关于JSON对象的兼容性和一些小问题 | skylar❤艺璇 </title>
+  <title> 关于JSON对象的兼容性和一些小问题 | skylar艺璇 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -127,13 +147,14 @@ JSON.stringify()返回指定JSON对象的字符串形式;">
     <div class="plant-wrap2"></div>
     <div class="plant-wrap3"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <span class="ac-icon-love"></span>
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">skylar❤艺璇</span>
+      <span class="site-title">skylar艺璇</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -242,9 +263,9 @@ JSON.stringify()返回指定JSON对象的字符串形式;">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="skylar❤艺璇">
+    <meta itemprop="name" content="skylar艺璇">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="skylar❤艺璇" src="">
+      <img style="display:none;" itemprop="url image" alt="skylar艺璇" src="">
     </span>
   </span>
 
@@ -322,11 +343,11 @@ JSON.stringify()返回指定JSON对象的字符串形式;">
       
 
       
-        <h3 id="一、JSON对象的一些方法"><a href="#一、JSON对象的一些方法" class="headerlink" title="一、JSON对象的一些方法"></a>一、JSON对象的一些方法</h3><ul>
+        <p>JSON对象在我们的数据请求中使用的很广泛。准确的了解一些JSON对象的方法和兼容性问题，可以在我们实现数据交互的时候事半功倍。<br><a id="more"></a> </p>
+<h3 id="一、JSON对象的一些方法"><a href="#一、JSON对象的一些方法" class="headerlink" title="一、JSON对象的一些方法"></a>一、JSON对象的一些方法</h3><ul>
 <li>JSON.parse()解析JSON字符串返回解析后的JSON对象;</li>
 <li>JSON.stringify()返回指定JSON对象的字符串形式;</li>
 </ul>
-<a id="more"></a> 
 <h3 id="二、JSON对象的兼容性问题"><a href="#二、JSON对象的兼容性问题" class="headerlink" title="二、JSON对象的兼容性问题"></a>二、JSON对象的兼容性问题</h3><p>IE8+才会支持JSON对象。我们可以通过代码自己模拟原生的JSON对象：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank" rel="external">模拟原生JSON对象</a></p>
 <p><strong>[eval和new Function]</strong></p>
 <p>看模拟原生JSON对象的实现我们可以看到实现思路：</p>
@@ -458,7 +479,7 @@ JSON.stringify()返回指定JSON对象的字符串形式;">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -590,25 +611,12 @@ JSON.stringify()返回指定JSON对象的字符串形式;">
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">skylar艺璇</span>
 </div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
-
 
         
 
@@ -726,7 +734,6 @@ JSON.stringify()返回指定JSON对象的字符串形式;">
   
 
   
-
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
   <script>AV.initialize("Qw9Ua0IDARc8HyQPQt58bITR-gzGzoHsz", "1lMbySdCR93QWvkRIdomqn6a");</script>
@@ -787,6 +794,7 @@ JSON.stringify()返回指定JSON对象的字符串形式;">
             counter.increment("time");
             counter.save(null, {
               success: function(counter) {
+                console.log(counter);
                 var $element = $(document.getElementById(url));
                 $element.find('.leancloud-visitors-count').text(counter.get('time'));
               },
@@ -838,76 +846,5 @@ JSON.stringify()返回指定JSON对象的字符串形式;">
 
   
 
-  <script type="text/javascript">
-    function randomIntBetween(a, b) {
-      return Math.floor(Math.random()*(b-a+1)+a);
-  }
-
-  function generateRandomSparklingFrames(steps, minOpacity, maxOpacity)
-  {
-      var opacity = [],
-          percent = [];
-      for(i=0; i < steps; i++) {
-          do {
-              opacity[i] = Math.random().toFixed(2);
-          } while (opacity[i] < minOpacity || opacity[i] > maxOpacity);
-          percent[i] = randomIntBetween(1,99);
-      }
-      percent.sort();
-
-      rule = "0% { opacity: " + opacity[0] + "} ";
-      for(i=0; i < steps; i++) {
-          rule += percent[i]+"% { opacity: " + opacity[i] + "} ";
-      }
-      rule += "100% { opacity: " + opacity[0] + "} ";
-
-      return rule;
-  }
-
-  function insertStarRule(name, numSteps, minOpacity, maxOpacity, animationTimeMin, animationTimeMax) {
-      CSS = document.styleSheets[0]; // take the default style sheet
-
-      if (CSS.insertRule) {
-          try {
-              CSS.insertRule("@-webkit-keyframes " + name + "{ " + generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity) + "}", CSS.cssRules.length);
-              CSS.insertRule("." + name + " { -webkit-animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite }", CSS.cssRules.length);
-          } catch (e) {}
-          try {
-              CSS.insertRule("@keyframes " + name + "{ " + generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity) + "}", CSS.cssRules.length);
-              CSS.insertRule("." + name + " {animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite }", CSS.cssRules.length);
-          } catch (e) {}
-      }
-
-      if(CSS.addRule) {
-          try {
-              CSS.addRule("@-webkit-keyframes " + name, generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity));
-              CSS.addRule("." + name, "-webkit-animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite");
-          } catch (e) {}
-          try {
-              CSS.addRule("@keyframes " + name, generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity));
-              CSS.addRule("." + name, "animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite");
-          } catch (e) {}
-      }
-  }
-
-  var w = $("#main").width(),
-      h = $("#main").height(),
-      starsCount = 2000;
-
-  for(n = 1; n <= starsCount; n++)
-      insertStarRule("s" + n, 5, .2, .7, 8, 20);
-
-  for(i = 0; i < starsCount; i++)
-  {
-      var size = randomIntBetween(2,8),
-          x = Math.min(randomIntBetween(8,w), w-size-5),
-          y = Math.min(randomIntBetween(8,h), h-size-5),
-          elem = $("<div class='star'></div>");
-
-      elem.css({"top": y, "left": x, "width": size, "height": size});
-      elem.addClass("s"+randomIntBetween(8,starsCount));
-      $("#main").append(elem);
-  }
-  </script>
 </body>
 </html>

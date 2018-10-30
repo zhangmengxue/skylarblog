@@ -26,6 +26,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -40,7 +66,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="skylar❤艺璇" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="skylar艺璇" type="application/atom+xml" />
 
 
 
@@ -52,31 +78,16 @@
 
 
 
-<meta name="description" content="我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？
-第一种情况这个肯定会：
-123if(data != &apos;&apos;)&amp;#123;	dosomething&amp;#125;
-但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：
-123if(obj != null)&amp;#123;	dosomething&amp;#125;
-那在好多情况下就又会进坑了…为什么呢？去这儿看看：关">
+<meta name="description" content="我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于对象的一些判断">
 <meta property="og:url" content="http://zhangmengxue.com/2015/01/22/aboutObject/index.html">
-<meta property="og:site_name" content="skylar❤艺璇">
-<meta property="og:description" content="我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？
-第一种情况这个肯定会：
-123if(data != &apos;&apos;)&amp;#123;	dosomething&amp;#125;
-但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：
-123if(obj != null)&amp;#123;	dosomething&amp;#125;
-那在好多情况下就又会进坑了…为什么呢？去这儿看看：关">
-<meta property="og:updated_time" content="2016-11-23T03:30:24.000Z">
+<meta property="og:site_name" content="skylar艺璇">
+<meta property="og:description" content="我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？">
+<meta property="og:updated_time" content="2016-11-27T07:06:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于对象的一些判断">
-<meta name="twitter:description" content="我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？
-第一种情况这个肯定会：
-123if(data != &apos;&apos;)&amp;#123;	dosomething&amp;#125;
-但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：
-123if(obj != null)&amp;#123;	dosomething&amp;#125;
-那在好多情况下就又会进坑了…为什么呢？去这儿看看：关">
+<meta name="twitter:description" content="我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？">
 
 
 
@@ -110,7 +121,7 @@
 
 
 
-  <title> 关于对象的一些判断 | skylar❤艺璇 </title>
+  <title> 关于对象的一些判断 | skylar艺璇 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,13 +147,14 @@
     <div class="plant-wrap2"></div>
     <div class="plant-wrap3"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <span class="ac-icon-love"></span>
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">skylar❤艺璇</span>
+      <span class="site-title">skylar艺璇</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -251,9 +263,9 @@
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="skylar❤艺璇">
+    <meta itemprop="name" content="skylar艺璇">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="skylar❤艺璇" src="">
+      <img style="display:none;" itemprop="url image" alt="skylar艺璇" src="">
     </span>
   </span>
 
@@ -332,12 +344,12 @@
 
       
         <p>我们经常会遇到这样的问题：判断一个对象是什么样的。是空对象（{}）？还是…？</p>
+<a id="more"></a> 
 <h2 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h2><p>这个肯定会：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(data != <span class="string">''</span>)&#123;</div><div class="line">	dosomething</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>但不能只会，很多情况下需要判断的不是字符串，对不？那如果变成对象只会判断：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(obj != <span class="literal">null</span>)&#123;</div><div class="line">	dosomething</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>那在好多情况下就又会进坑了…<br>为什么呢？去这儿看看：<a href="http://barretlee.github.io/ST/ES5.1/#sec-11.9.3" target="_blank" rel="external">关于x==y的比较行为</a></p>
-<a id="more"></a> 
 <h2 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h2><p>$.isPlainObject()</p>
 <p>jQ中的这个方法在对象是通过{}或new Object()创建的的时候会返回true。Zepto中<br>也有这个方法，大体相同。</p>
 <p>源码是这样的：</p>
@@ -469,7 +481,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -601,25 +613,12 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">skylar艺璇</span>
 </div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
-
 
         
 
@@ -737,7 +736,6 @@
   
 
   
-
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
   <script>AV.initialize("Qw9Ua0IDARc8HyQPQt58bITR-gzGzoHsz", "1lMbySdCR93QWvkRIdomqn6a");</script>
@@ -798,6 +796,7 @@
             counter.increment("time");
             counter.save(null, {
               success: function(counter) {
+                console.log(counter);
                 var $element = $(document.getElementById(url));
                 $element.find('.leancloud-visitors-count').text(counter.get('time'));
               },
@@ -849,76 +848,5 @@
 
   
 
-  <script type="text/javascript">
-    function randomIntBetween(a, b) {
-      return Math.floor(Math.random()*(b-a+1)+a);
-  }
-
-  function generateRandomSparklingFrames(steps, minOpacity, maxOpacity)
-  {
-      var opacity = [],
-          percent = [];
-      for(i=0; i < steps; i++) {
-          do {
-              opacity[i] = Math.random().toFixed(2);
-          } while (opacity[i] < minOpacity || opacity[i] > maxOpacity);
-          percent[i] = randomIntBetween(1,99);
-      }
-      percent.sort();
-
-      rule = "0% { opacity: " + opacity[0] + "} ";
-      for(i=0; i < steps; i++) {
-          rule += percent[i]+"% { opacity: " + opacity[i] + "} ";
-      }
-      rule += "100% { opacity: " + opacity[0] + "} ";
-
-      return rule;
-  }
-
-  function insertStarRule(name, numSteps, minOpacity, maxOpacity, animationTimeMin, animationTimeMax) {
-      CSS = document.styleSheets[0]; // take the default style sheet
-
-      if (CSS.insertRule) {
-          try {
-              CSS.insertRule("@-webkit-keyframes " + name + "{ " + generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity) + "}", CSS.cssRules.length);
-              CSS.insertRule("." + name + " { -webkit-animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite }", CSS.cssRules.length);
-          } catch (e) {}
-          try {
-              CSS.insertRule("@keyframes " + name + "{ " + generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity) + "}", CSS.cssRules.length);
-              CSS.insertRule("." + name + " {animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite }", CSS.cssRules.length);
-          } catch (e) {}
-      }
-
-      if(CSS.addRule) {
-          try {
-              CSS.addRule("@-webkit-keyframes " + name, generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity));
-              CSS.addRule("." + name, "-webkit-animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite");
-          } catch (e) {}
-          try {
-              CSS.addRule("@keyframes " + name, generateRandomSparklingFrames(numSteps, minOpacity, maxOpacity));
-              CSS.addRule("." + name, "animation: " + name + " " + randomIntBetween(animationTimeMin, animationTimeMax) + "s infinite");
-          } catch (e) {}
-      }
-  }
-
-  var w = $("#main").width(),
-      h = $("#main").height(),
-      starsCount = 2000;
-
-  for(n = 1; n <= starsCount; n++)
-      insertStarRule("s" + n, 5, .2, .7, 8, 20);
-
-  for(i = 0; i < starsCount; i++)
-  {
-      var size = randomIntBetween(2,8),
-          x = Math.min(randomIntBetween(8,w), w-size-5),
-          y = Math.min(randomIntBetween(8,h), h-size-5),
-          elem = $("<div class='star'></div>");
-
-      elem.css({"top": y, "left": x, "width": size, "height": size});
-      elem.addClass("s"+randomIntBetween(8,starsCount));
-      $("#main").append(elem);
-  }
-  </script>
 </body>
 </html>
